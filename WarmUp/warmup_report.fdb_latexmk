@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1538075686 "warmup_report.tex" "warmup_report.pdf" "warmup_report" 1538075686
+["pdflatex"] 1538080817 "warmup_report.tex" "warmup_report.pdf" "warmup_report" 1538080817
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1536122179 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1536122179 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1536122179 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -12,9 +12,6 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1536122179 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1536122179 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1536122179 1124 6c73e740cf17375f03eec0ee63599741 ""
-  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1536122179 32080 340ef9bf63678554ee606688e7b5339d ""
-  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1536122179 32722 d7379af29a190c3f453aba36302ff5a9 ""
-  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1536122179 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1536122179 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty" 1536122179 8237 3b62ef1f7e2c23a328c814b3893bc11f ""
   "/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty" 1536122179 185313 3e16abd014cb2c328020e45d63ed7f45 ""
@@ -44,6 +41,9 @@
   "/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty" 1536122179 12949 81e4e808884a8f0e276b69410e234656 ""
   "/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def" 1536122179 14098 4e70bf396c7c265bd8b0e5cab3fd3d4d ""
   "/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg" 1536122179 235 6031e5765137be07eed51a510b2b8fb7 ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.cfg" 1536122179 1828 dcfaf5610ea22a61c7baac6f2ca3cb43 ""
+  "/usr/share/texmf-dist/tex/latex/listings/listings.sty" 1536122179 80394 a25e563baccecba00b03b4a462eb4141 ""
+  "/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty" 1536122179 77021 1c90ba86bdf6da80a6b661f51d7f0175 ""
   "/usr/share/texmf-dist/tex/latex/oberdiek/auxhook.sty" 1536122179 3834 4363110eb0ef1eb2b71c8fcbcdb6c357 ""
   "/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty" 1536122179 22417 1d9df1eb66848aa31b18a593099cf45c ""
   "/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty" 1536122179 9581 023642318cef9f4677efe364de1e2a27 ""
@@ -52,9 +52,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1536122179 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536509970 2756227 3af771b8c7802fcc4de3c67a29c4e776 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1536509958 7908118 0ca4a00fadc38a4839c512e787b231bb ""
-  "warmup_report.aux" 1538075686 914 148733d9f93cc474e3f18e38064161b0 ""
-  "warmup_report.out" 1538075686 138 11341acc74b74b9ca7bf319c6c25cc9a ""
-  "warmup_report.tex" 1538075684 821 9ba6f6f81f9ef8fdd86ca00ea4890bc1 ""
+  "warmup_report.aux" 1538080525 1205 9bf25e3397a32c94b1c72364c93c4db5 ""
+  "warmup_report.out" 1538080525 193 440f0eb38cf7212b57c45abcd8a003b5 ""
+  "warmup_report.tex" 1538079681 1946 74f7a47d2d33700dabb213403f950397 ""
   (generated)
   "warmup_report.pdf"
   "warmup_report.aux"

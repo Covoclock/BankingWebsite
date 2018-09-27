@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  27 SEP 2018 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  27 SEP 2018 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -252,23 +252,45 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@toks=\toks23
 \enit@inbox=\box28
 \enitdp@description=\count117
-) (./warmup_report.aux)
+) (/usr/share/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count118
+\lst@gtempboxa=\box29
+\lst@token=\toks24
+\lst@length=\count119
+\lst@currlwidth=\dimen138
+\lst@column=\count120
+\lst@pos=\count121
+\lst@lostspace=\dimen139
+\lst@width=\dimen140
+\lst@newlines=\count122
+\lst@lineno=\count123
+\lst@maxwidth=\dimen141
+ (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
+\c@lstnumber=\count124
+\lst@skipnumbers=\count125
+\lst@framebox=\box30
+) (/usr/share/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2018/09/02 1.7 listings configuration
+))
+Package: listings 2018/09/02 1.7 (Carsten Heinz)
+ (./warmup_report.aux)
 \openout1 = `warmup_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -304,55 +326,54 @@ LaTeX Font Info:    ... okay on input line 34.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 34.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 35.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count118
+\c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 34.
-LaTeX Info: Redefining \pageref on input line 34.
-LaTeX Info: Redefining \nameref on input line 34.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
  (./warmup_report.out) (./warmup_report.out)
 \@outlinefile=\write3
 \openout3 = `warmup_report.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+\c@lstlisting=\count127
+LaTeX Font Info:    Try loading font information for U+msa on input line 37.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 37.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
- [1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
- (./warmup_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
-Package rerunfilecheck Info: File `warmup_report.out' has not changed.
-(rerunfilecheck)             Checksum: 11341ACC74B74B9CA7BF319C6C25CC9A;138.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 48.
- ) 
+
+! Package Listings Error: File `creation_commands(.sql)' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sql)
+
+Enter file name: 
+./warmup_report.tex:61: Emergency stop.
+<read *> 
+         
+l.61 ...ine=0, lastline=20]{creation_commands.sql}
+                                                  ^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
 Here is how much of TeX's memory you used:
- 6200 strings out of 492642
- 89687 string characters out of 6135567
- 186537 words of memory out of 5000000
- 10046 multiletter control sequences out of 15000+600000
- 7442 words of font info for 29 fonts, out of 8000000 for 9000
+ 7525 strings out of 492642
+ 108453 string characters out of 6135567
+ 204717 words of memory out of 5000000
+ 11358 multiletter control sequences out of 15000+600000
+ 7749 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,7n,43p,229b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on warmup_report.pdf (1 page, 36151 bytes).
-PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+./warmup_report.tex:61:  ==> Fatal error occurred, no output PDF file produced!

@@ -66,6 +66,12 @@ INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/listings.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/listings.cfg
+INPUT /usr/share/texmf-dist/tex/latex/listings/listings.cfg
 INPUT warmup_report.aux
 INPUT warmup_report.aux
 OUTPUT warmup_report.aux
@@ -97,12 +103,7 @@ INPUT /usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT warmup_report.aux
-INPUT ./warmup_report.out
-INPUT ./warmup_report.out
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm

@@ -10,6 +10,7 @@
 \usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
+\usepackage{listings}
 
 \linespread{1.6}
 
@@ -33,11 +34,36 @@
 
 \begin{document}
 \maketitle
+\newpage
 
 \section{Database Design}
 
-\section{Assumptions}
+\subsection{Assumptions}
+Only one branch on each (province,city,street) combination
+Only one manager per branch.
 
+Client can only be associated with one branch.
+Client can have multiple accounts.
+
+An account has to be associated with a current client of the bank.
+An account can only have one option associated with it.
+
+Interest rates vary by account, it may be the default value that the bank has set but may also be different based on some negotiations with the bank.
+Therefore the interest rate table gives the default values for the percentage that the bank has set regarding the different combinations of services and type of accounts.
+
+Employee only works at one branch and that branch has to be open.
+An employee can only hold one position (ex. the president of the company is not the manager of the head office).
+All service managers work at the head office.
+
+\section{Schema}
+
+\begin{figure}[ht]
+  \lstinputlisting[language=sql, firstline=0, lastline=20]{creation_commands.sql}
+\end{figure}
+
+\begin{figure}[ht]
+  \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
+\end{figure}
 \section{Queries}
 
 

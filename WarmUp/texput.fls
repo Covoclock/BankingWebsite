@@ -1,0 +1,4 @@
+PWD /home/strange/SynoBox/School/Concordia/Fall 2018/COMP353/Project/WarmUp
+INPUT /usr/share/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+OUTPUT texput.log
