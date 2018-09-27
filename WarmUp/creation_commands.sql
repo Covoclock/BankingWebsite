@@ -9,12 +9,14 @@
 /* Branch */
 CREATE TABLE Branch (
         branch_id       int not null auto_increment,
-        location        varchar(255) not null,
+        province        varchar(255) not null,
+        city            varchar(255) not null,
+        street          varchar(255) not null,
         phone           varchar(255),
         fax             varchar(255),
         opening_date    DATE not null,
-        manager_name    varchar(255),
         manager_id      int not null,
+        isHeadOffice    tinyint(1),
         primary key(branch_id),
         foreign key(manager_id) references Employee(title_id)
 );
@@ -31,9 +33,9 @@ CREATE TABLE Employee (
         phone           varchar(255),
         branch_id       int not null,
         position_id     int not null,
-        primary key(employee_id),
         foreign key(branch_id) references Branch(branch_id),
-        foreign key(position_id) references Positions(position_id)
+        foreign key(position_id) references Positions(position_id),
+        primary key(employee_id)
 );
 
 /* Client */
@@ -59,10 +61,10 @@ CREATE TABLE Account (
         level_id        int,
         credit_limit    decimal(14,2),
         balance         decimal(14,2),
-        primary key(account_id),
         foreign key(client_id) references Client(client_id),
         foreign key(branch_id) references Branch(branch_id),
-        foreign key(level_id)  references LevelAcount(level_id)
+        foreign key(level_id)  references LevelAcount(level_id),
+        primary key(account_id)
 );
 
 /* Services */
@@ -72,7 +74,9 @@ CREATE TABLE Services (
         primary key(service_id)
 );
 
-/* Positions */
+/* Positions
+        Describes the position of an employee
+ */
 CREATE TABLE Positions (
         position_id     int,
         service_name    char(50),
@@ -92,8 +96,17 @@ CREATE TABLE InterestRate (
         service_id      int not null,
         level_id        int not null,
         rate            float,
-        foreign key(service_id) reference Services(service_id),
+        foreign key(service_id) references Services(service_id),
         foreign key(level_id) references LevelAcount(level_id)
+);
+
+/* Charge plans */
+/*      */
+CREATE TABLE ChargePlan (
+        charge_id       int not null,
+        limit           float,
+        charge_value    float, 
+        primary key(charge_option)
 );
 
 /*
