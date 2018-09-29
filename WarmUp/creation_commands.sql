@@ -138,21 +138,21 @@ VALUES(202, 'Ontario', 'Toronto', 'Ford', '450-365-3433', '450-453-6677', '2005-
 -- ------------------------
 
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('1001', 'John',  'Smith', '219 Rue Berlioz', '2001-02-22', 56188.12, 'awoeif@gmail.com', '514-345-3349', 100,10);
+VALUE(1001, 'John',  'Smith', '219 Rue Berlioz', '2001-02-22', 56188.12, 'awoeif@gmail.com', '514-345-3349', 100,10);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('1002', 'Michelle',  'Green', '233 Rue Gika', '2001-02-22', 58188.12, 'regtyj@gmail.com', '514-455-8988', 100,11);
+VALUE(1002, 'Michelle',  'Green', '233 Rue Gika', '2001-02-22', 58188.12, 'regtyj@gmail.com', '514-455-8988', 100,11);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('1011', 'Jim',  'Jones', '111 Rue Rigo', '2003-05-20', 65444.11, 'tyjdrheg@gmail.com', '514-455-6576', 101,10);
+VALUE(1011, 'Jim',  'Jones', '111 Rue Rigo', '2003-05-20', 65444.11, 'tyjdrheg@gmail.com', '514-455-6576', 101,10);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('1012', 'Kim',  'Howard', '453 Rue Tika', '2003-05-20', 76666.21, 'jyrthe@gmail.com', '514-455-3333', 101,11);
+VALUE(1012, 'Kim',  'Howard', '453 Rue Tika', '2003-05-20', 76666.21, 'jyrthe@gmail.com', '514-455-3333', 101,11);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('2011', 'Ann',  'Roger', '219  Trudeau', '2004-08-21', 59321.34, 'jythrt@gmail.com', '450-345-3349', 201,10);
+VALUE(2011, 'Ann',  'Roger', '219  Trudeau', '2004-08-21', 59321.34, 'jythrt@gmail.com', '450-345-3349', 201,10);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('2012', 'Tim',  'King', '233  Tilan', '2004-08-21', 61222.11, 'iuwsd@gmail.com', '450-455-8988', 201,11);
+VALUE(2012, 'Tim',  'King', '233  Tilan', '2004-08-21', 61222.11, 'iuwsd@gmail.com', '450-455-8988', 201,11);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('2021', 'Jack',  'Atheia', '111  frank', '2005-11-29', 63324.61, 'mnbv@gmail.com', '450-455-6576', 202,10);
+VALUE(2021, 'Jack',  'Atheia', '111  frank', '2005-11-29', 63324.61, 'mnbv@gmail.com', '450-455-6576', 202,10);
 INSERT INTO Employee(employee_id, firstName, lastName, addr, start_date, salary, email, phone, branch_id, postion_id)
-VALUE('2022', 'Kim',  'Stefen', '453  Demo', '2005-11-29', 63333.22, 'zxcvds@gmail.com', '450-455-3333', 202,11);
+VALUE(2022, 'Kim',  'Stefen', '453  Demo', '2005-11-29', 63333.22, 'zxcvds@gmail.com', '450-455-3333', 202,11);
 
 
 /*just test*/
