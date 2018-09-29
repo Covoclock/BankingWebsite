@@ -132,8 +132,20 @@ SELECT client_id FROM Client WHERE branch_id IN (
     );
   \end{lstlisting}
   \item List of clients who have at least 1,000,000 CDN dollar in their savings account.
+    \begin{lstlisting}[language=sql]
+SELECT DISTINCT client_id FROM Account WHERE 
+	account_type = 'savings' AND balance >= 1000000;
+  \end{lstlisting}
   \item List of all the services along with the general manager for each service.
+    \begin{lstlisting}[language=sql]
+SELECT s.service_name, e.firstName, e.lastName 
+	FROM Services s, Employee e WHERE s.manager_id = e.employee_id;
+  \end{lstlisting}
   \item Complete details of the president of the bank.
+    \begin{lstlisting}[language=sql]
+SELECT * FROM Employee WHERE employee_id = (SELECT manager_id FROM Branch WHERE isHeadOffice = 1);
+  \end{lstlisting}
+
 \end{enumerate}
 
 
