@@ -29,7 +29,7 @@ CREATE TABLE Employee (
         lastName        varchar(255) not null,
         addr            varchar(255),
         start_date      date not null,
-        salary          decimal(14,2),
+        salary          decimal(14,2) default 0,
         email           varchar(255),
         phone           varchar(255),
         branch_id       int,
