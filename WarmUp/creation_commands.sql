@@ -77,25 +77,16 @@ CREATE TABLE Services (
         primary key(service_id)
 );
 
-/* Positions
-        Describes the position of an employee
-        ex President, Branch Manager, General Manager for x service, Associate,...
-CREATE TABLE Positions (
-        position_id     int,
-        service_name    char(50),
-        primary key(position_id)
-);
-*/
-
 
 /* Interest Rate  */
-/*      Vary with service, type of accound and has % associated */
+/*      Vary with service, type of accound and has % associated 
 CREATE TABLE InterestRate (
         service_id      int not null,
         account_type    varchar(255) not null,
         rate            float,
         foreign key(service_id) references Services(service_id),
 );
+*/
 
 /* Charge plans */
 /*      */
