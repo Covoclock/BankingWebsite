@@ -85,27 +85,52 @@ As stated previously, the services contain a list of services that the bank offe
 All general managers are thus also considered employees.
 
 \subsubsection{Charge Plan}
+Charge plans \ldots
 
 \section{Schema}
 
-\begin{figure}[ht]
-  \lstinputlisting[language=sql, firstline=0, lastline=20]{creation_commands.sql}
-\end{figure}
-
-\begin{figure}[ht]
-  \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
-\end{figure}
+%\begin{figure}[ht]
+%  \lstinputlisting[language=sql, firstline=0, lastline=20]{creation_commands.sql}
+%\end{figure}
+%
+%\begin{figure}[ht]
+%  \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
+%\end{figure}
 
 \section{Queries}
 
 \begin{enumerate}[label=(\alph*)]
   \item All of the tables
+    \begin{lstlisting}[language=sql]
+show tables;
+  \end{lstlisting}
   \item List of all the branches grouped by city and ordered by oldest branch.
+    \begin{lstlisting}[language=sql]
+SELECT * FROM Branch ORDER BY city ASC, DATE(opening_date) ASC;
+  \end{lstlisting}
   \item List of all clients with DOB between 1990 and 2017.
+    \begin{lstlisting}[language=sql]
+SELECT client_id, dob FROM Client WHERE 
+	DATE(dob) > '1990-01-01' AND DATE(dob) < '2018-01-01';
+  \end{lstlisting}
   \item List all clients of a branch who has either a checking or savings account of balance more than CND 10,000.00.
+    \begin{lstlisting}[language=sql]
+SELECT _ FROM _ WHERE 
+	;
+  \end{lstlisting}
   \item List of all clients of a branch who has a line of credit of limit CND 25,000.00 with an interest rate of 7.5\% or below.
   \item List details of a client named Roberto.
+    \begin{lstlisting}[language=sql]
+SELECT * FROM Client WHERE 
+	firstName = 'Roberto' OR lastName = 'Roberto';
+  \end{lstlisting}
   \item List of all clients of 'Cote Des Neiges' branch.
+    \begin{lstlisting}[language=sql]
+SELECT client_id FROM Client WHERE branch_id IN (
+	SELECT branch_id FROM Branch WHERE area LIKE
+	'%Cote Des Neiges%'
+    );
+  \end{lstlisting}
   \item List of clients who have at least 1,000,000 CDN dollar in their savings account.
   \item List of all the services along with the general manager for each service.
   \item Complete details of the president of the bank.
