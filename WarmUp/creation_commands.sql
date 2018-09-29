@@ -62,7 +62,8 @@ CREATE TABLE Account (
         account_type    varchar(255) not null,
         account_option  varchar(255) not null,
         balance         decimal(14,2),
-        credit_limit    decimal(14,2),
+        line_credit_limit    decimal(14,2), /*limit of line of credit and interest vary from person to person*/
+        intrest_line_credit float, /* interest of line of credit depend on the sum of this interest and prime rate(listed in service form) */
         foreign key(client_id) references Client(client_id),
         primary key(account_id)
 );
