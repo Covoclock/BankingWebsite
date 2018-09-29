@@ -50,9 +50,9 @@ VALUE( 'Kim',  'Stefen', '453  Demo', '2005-11-29', 63333.22, 'zxcvds@gmail.com'
 
 
 INSERT INTO Client(firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
-VALUE('Ricky', 'Martin', '342 rue berlioz', '1980-02-22', '2003-1-12', 'bnos@gmail.com', '514-222-3456', 1);
+VALUE('Ricky', 'Martin', '342 rue Cote Des Neiges', '1980-02-22', '2003-1-12', 'bnos@gmail.com', '514-222-3456', 1);
 INSERT INTO Client(client_id, firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
-VALUE('Mei', 'Yuan', '111 rue Young', '1990-03-11', '2003-12-24', 'trdhge@gmail.com', '514-222-6544', 2);
+VALUE('Roberto', 'Yuan', '111 rue Young', '1990-03-11', '2003-12-24', 'trdhge@gmail.com', '514-222-6544', 2);
 INSERT INTO Client(client_id, firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
 VALUE('Tina', 'Ita', '675 rue William', '1983-02-22', '2004-12-26', 'bnos@gmail.com', '450-222-9877', 3);
 INSERT INTO Client(client_id, firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
@@ -64,15 +64,15 @@ VALUE('Bob', 'Bush', '456 rue Young', '1995-03-11', '2005-12-28', 'trdhge@gmail.
 -- ------------------------
 
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
-VALUE(1, 'saving', 'high interest', 10000.32,  100000.00, 0.02);
+VALUE(1, 'saving', 'high interest', 8000.32,  9000.00, 0.02);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
-VALUE(1, 'chequing', 'regular', 54323.32,  20000.00, 0.03);
+VALUE(1, 'chequing', 'regular', 5432.32,  20000.00, 0.03);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
 VALUE(2, 'saving', 'enhanced interest', 65432.11,  30000.00, 0.03);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
-VALUE(2, 'chequing', 'primium', 76554.23,  26000.00, 0.02);
+VALUE(2, 'chequing', 'primium', 7655.23,  25000.00, 0.02);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
-VALUE(3, 'saving', 'high interest', 20065.32,  26000.00, 0.04);
+VALUE(3, 'saving', 'high interest', 20065.32,  25000.00, 0.04);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
 VALUE(3, 'chequing', 'regular', 45333.32,  30000.00, 0.04);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
