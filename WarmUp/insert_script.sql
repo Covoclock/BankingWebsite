@@ -80,3 +80,16 @@ VALUE(4, 'saving', 'enhanced interest', 43544.11,  50000.00);
 INSERT INTO Account(client_id, account_type, account_option, balance, line_credit_limit)
 VALUE(4, 'chequing', 'primium', 76554.23,  40000.00);
 
+-- ------------------------
+-- Populate Services table
+-- ------------------------
+
+INSERT INTO Services(service_name, manager_id)
+VALUE('saving', 2);
+INSERT INTO Services(service_name, manager_id)
+VALUE('chequing', 4);
+INSERT INTO Services(service_name, manager_id)
+VALUE('line of credit', 6);
+INSERT INTO Services(service_name, manager_id)
+VALUE('loan', 8);
+
