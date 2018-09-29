@@ -49,7 +49,7 @@ CREATE TABLE Client (
         joining_date    date not null,
         email           varchar(255),
         phone           varchar(255),
-        category        varchar(255) default 'Regular'
+        category        varchar(255) default 'Regular',
         branch_id       int not null,
         foreign key(branch_id) references Branch(branch_id),
         primary key(client_id)
@@ -60,7 +60,7 @@ CREATE TABLE Account (
         account_id      int not null auto_increment,
         client_id       int not null,
         account_type    varchar(255) not null,
-        account_option  varchar not null,
+        account_option  varchar(255) not null,
         balance         decimal(14,2),
         credit_limit    decimal(14,2),
         foreign key(client_id) references Client(client_id),
@@ -109,7 +109,7 @@ CREATE TABLE InterestRate (
 /*      */
 CREATE TABLE ChargePlan (
         charge_id       int not null,
-        limit           float,
+        draw_limit           float,
         charge_value    float, 
         primary key(charge_option)
 );
