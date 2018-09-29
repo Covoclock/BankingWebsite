@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Database Design}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Assumptions}{section.1}% 2
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Branch}{subsection.1.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Employee}{subsection.1.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.1.3}{Client}{subsection.1.1}% 5
+\BOOKMARK [3][-]{subsubsection.1.1.4}{Account}{subsection.1.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.1.5}{Interest Rate}{subsection.1.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.1.6}{Services}{subsection.1.1}% 8
+\BOOKMARK [3][-]{subsubsection.1.1.7}{Charge Plan}{subsection.1.1}% 9
+\BOOKMARK [1][-]{section.2}{Schema}{}% 10
+\BOOKMARK [1][-]{section.3}{Queries}{}% 11

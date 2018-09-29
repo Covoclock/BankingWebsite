@@ -1,2 +1,6 @@
 info.txt
 send_www.sh
+!/WarmUp
+/WarmUp/warmup_report.*
+!/WarmUp/warmup_report.pdf
+!/WarmUp/warmup_report.tex

@@ -33,9 +33,9 @@ CREATE TABLE Employee (
         email           varchar(255),
         phone           varchar(255),
         branch_id       int not null,
-        position_id     int not null,
+        -- position_id     int not null,
         foreign key(branch_id) references Branch(branch_id),
-        foreign key(position_id) references Positions(position_id),
+        -- foreign key(position_id) references Positions(position_id),
         primary key(employee_id)
 );
 
@@ -62,8 +62,8 @@ CREATE TABLE Account (
         account_type    varchar(255) not null,
         account_option  varchar(255) not null,
         balance         decimal(14,2),
-        line_credit_limit    decimal(14,2), /*limit of line of credit and interest vary from person to person*/
-        intrest_line_credit float, /* interest of line of credit depend on the sum of this interest and prime rate(listed in service form) */
+        credit_limit    decimal(14,2), /*limit of line of credit and interest vary from person to person*/
+        interest_rate   float, /* interest of line of credit depend on the sum of this interest and prime rate(listed in service form) */
         foreign key(client_id) references Client(client_id),
         primary key(account_id)
 );
@@ -80,22 +80,21 @@ CREATE TABLE Services (
 /* Positions
         Describes the position of an employee
         ex President, Branch Manager, General Manager for x service, Associate,...
-*/
 CREATE TABLE Positions (
         position_id     int,
         service_name    char(50),
         primary key(position_id)
 );
+*/
 
 
 /* Interest Rate  */
 /*      Vary with service, type of accound and has % associated */
 CREATE TABLE InterestRate (
         service_id      int not null,
-        level_id        int not null,
+        account_type    varchar(255) not null,
         rate            float,
         foreign key(service_id) references Services(service_id),
-        foreign key(level_id) references LevelAcount(level_id)
 );
 
 /* Charge plans */

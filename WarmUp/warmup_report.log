@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  27 SEP 2018 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  29 SEP 2018 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -354,26 +354,57 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-! Package Listings Error: File `creation_commands(.sql)' not found.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sql)
+[2] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2018/09/02 1.7 listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 92.
+ (./creation_commands.sql
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3.
+ (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3.
+) (./creation_commands.sql
+Overfull \hbox (23.74413pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][][][][][][][][] 
+ []
 
-Enter file name: 
-./warmup_report.tex:61: Emergency stop.
-<read *> 
-         
-l.61 ...ine=0, lastline=20]{creation_commands.sql}
-                                                  ^^M
-*** (cannot \read from terminal in nonstop modes)
-
- 
+) [3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
+ [4] [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+ (./warmup_report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
+Package rerunfilecheck Info: File `warmup_report.out' has not changed.
+(rerunfilecheck)             Checksum: A43F0422B2C93831F7766A2BCAD036FD;667.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
+ ) 
 Here is how much of TeX's memory you used:
- 7525 strings out of 492642
- 108453 string characters out of 6135567
- 204717 words of memory out of 5000000
- 11358 multiletter control sequences out of 15000+600000
- 7749 words of font info for 30 fonts, out of 8000000 for 9000
+ 8181 strings out of 492642
+ 115505 string characters out of 6135567
+ 422476 words of memory out of 5000000
+ 11927 multiletter control sequences out of 15000+600000
+ 12750 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,7n,43p,229b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
-./warmup_report.tex:61:  ==> Fatal error occurred, no output PDF file produced!
+ 32i,10n,43p,237b,1640s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on warmup_report.pdf (5 pages, 85150 bytes).
+PDF statistics:
+ 165 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+

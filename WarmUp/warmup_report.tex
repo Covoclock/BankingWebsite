@@ -22,38 +22,69 @@
 
 \title{
   Warm-up Project
-  \vspace*{5em}
+  \vspace*{6em}
 }
 \author{
   Group ID: td\_comp353\_2\\\\
   Yassin Bah 40077524\\
   Joel Dusablon Senecal 40035704\\
   Feng Zhao 40021856\\
-  Alireza Sari 40032394 \vspace*{3em}
+  Alireza Sari 40032394\\ \vspace*{5em}
 }
 
 \begin{document}
 \maketitle
 \newpage
 
+
 \section{Database Design}
-
 \subsection{Assumptions}
-Only one branch on each (province,city,street) combination
-Only one manager per branch.
+In developping and designing this database, certain assumptions have been made.
+The goal of this section is to list them in order to help clarify why the database is created the way it is.
 
-Client can only be associated with one branch.
-Client can have multiple accounts.
+\subsubsection{Branch}
+A branch has a unique ID that allows for the distinction of if multiple branches are in the same area.
+A branch needs to have one manager at all times.
+In relational terms, it means the attribute cannont be null in the Branch table.
+All the branches of the bank, including the head office, should be in this table.
+The head office is denoted by a flag that is set to 1 for the record of the head office.
+Furthermore, the manager of the head office represents the president of the bank.
+Following this assumption, the president of the bank is also an employee and has an equivalent entry in the Employee table.
 
+\subsubsection{Employee}
+Every employee has a unique identifier.
+Basic assumptions about employees are that each record must have their first name, last name, starting date and a branch ID that cannot be null at the onset.
+Employee only works at one branch and that branch has to be open.
+That means that the branch ID for in the Employee table cannot be null at any time.
+%An employee can only hold one position (ex. the president of the company is not the manager of the head office).
+All service general managers work at the head office.
+In order to know the general manager of each service, the Service table needs to be looked up.
+
+\subsubsection{Client}
+Clients also have unique identifier.
+Like employees, clients have a first name, a last name and a branch attributes that cannot be null.
+A client needs to be associated with one branch at all times.
+
+\subsubsection{Account}
+Accounts belong to a specific client and may not be shared.
+Clients, however, may have multiple accounts linked to them.
 An account has to be associated with a current client of the bank.
-An account can only have one option associated with it.
+An account can only have one option associated with it.%, which could be for a US account
+Credit limits are associated with accounts rather than clients.
+Reason being is that a client may have a business account and a personal account, but the credit limit for either account might be different.
+A similar situation occurs with the interest rate.
 
+\subsubsection{Interest Rate}
+%This table gives the default interest rate for the bank when looking at each combination of service and the account type. 
 Interest rates vary by account, it may be the default value that the bank has set but may also be different based on some negotiations with the bank.
+For example, the interest rate for a checking account is 0\% by default.
 Therefore the interest rate table gives the default values for the percentage that the bank has set regarding the different combinations of services and type of accounts.
 
-Employee only works at one branch and that branch has to be open.
-An employee can only hold one position (ex. the president of the company is not the manager of the head office).
-All service managers work at the head office.
+\subsubsection{Services}
+As stated previously, the services contain a list of services that the bank offers as well as the ID of the general manager for said service.
+All general managers are thus also considered employees.
+
+\subsubsection{Charge Plan}
 
 \section{Schema}
 
@@ -64,11 +95,21 @@ All service managers work at the head office.
 \begin{figure}[ht]
   \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
 \end{figure}
+
 \section{Queries}
 
+\begin{enumerate}[label=(\alph*)]
+  \item All of the tables
+  \item List of all the branches grouped by city and ordered by oldest branch.
+  \item List of all clients with DOB between 1990 and 2017.
+  \item List all clients of a branch who has either a checking or savings account of balance more than CND 10,000.00.
+  \item List of all clients of a branch who has a line of credit of limit CND 25,000.00 with an interest rate of 7.5\% or below.
+  \item List details of a client named Roberto.
+  \item List of all clients of 'Cote Des Neiges' branch.
+  \item List of clients who have at least 1,000,000 CDN dollar in their savings account.
+  \item List of all the services along with the general manager for each service.
+  \item Complete details of the president of the bank.
+\end{enumerate}
 
 
-
-%\begin{enumerate}[label=(\alph*)]
-%\end{enumerate}
 \end{document}
