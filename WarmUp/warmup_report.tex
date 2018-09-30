@@ -50,12 +50,14 @@ All the branches of the bank, including the head office, should be in this table
 The head office is denoted by a flag that is set to 1 for the record of the head office.
 Furthermore, the manager of the head office represents the president of the bank.
 Following this assumption, the president of the bank is also an employee and has an equivalent entry in the Employee table.
+Moreover, it was assumed that the address of the branch as well as its opening date must contain a value (i.e. they cannot be null), while the phone and fax number can initially be void.   
 
 \subsubsection{Employee}
 Every employee has a unique identifier.
 Basic assumptions about employees are that each record must have their first name, last name, starting date and a branch ID that cannot be null at the onset.
 Employee only works at one branch and that branch has to be open.
 That means that the branch ID for in the Employee table cannot be null at any time.
+However, the email and phone fields for a particular employee can hold null values, whereas the salary, while not nullable, can still hold a default value of 0. 
 %An employee can only hold one position (ex. the president of the company is not the manager of the head office).
 All service general managers work at the head office.
 In order to know the general manager of each service, the Service table needs to be looked up.
@@ -82,7 +84,7 @@ A similar situation occurs with the interest rate, they can vary depending on mu
 
 \subsubsection{Services}
 As stated previously, the services contain a list of services that the bank offers as well as the ID of the general manager for said service.
-All general managers are thus also considered employees.
+Therefore, the value of the manager id cannot be null. All general managers are thus also considered employees.
 
 \subsubsection{Charge Plan}
 
