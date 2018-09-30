@@ -12,17 +12,17 @@
 -- ------------------------
 
 
-INSERT INTO Branch(province, city, street, phone, fax, opening_date, manager_id, isHeadOffice)
-VALUES('Quebec', 'Montreal', 'William', '514-365-2589', '514-258-2656', '2001-02-22', 10031, 1);
-INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, manager_id, isHeadOffice)
-VALUES('Quebec', 'Montreal', 'Berlioz', '514-365-2345', '514-258-8765', '2003-05-20', 20031, 0);
-INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, manager_id, isHeadOffice)
-VALUES('Ontario', 'Toronto', 'Canadian', '450-365-7658', '450-453-8899', '2004-08-21', 40031, 0);
-INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, manager_id, isHeadOffice)
-VALUES('Ontario', 'Toronto', 'Ford', '450-365-3433', '450-453-6677', '2005-11-29', 50031, 0);
+INSERT INTO Branch(province, city, street, phone, fax, opening_date, isHeadOffice)
+VALUES('Quebec', 'Montreal', 'William', '514-365-2589', '514-258-2656', '2001-02-22',  1);
+INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, isHeadOffice)
+VALUES('Quebec', 'Montreal', 'Berlioz', '514-365-2345', '514-258-8765', '2003-05-20',  0);
+INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, isHeadOffice)
+VALUES('Ontario', 'Toronto', 'Canadian', '450-365-7658', '450-453-8899', '2004-08-21', 0);
+INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, isHeadOffice)
+VALUES('Ontario', 'Toronto', 'Ford', '450-365-3433', '450-453-6677', '2005-11-29',  0);
 
 /* Cote Des Neiges */
-INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, manager_id, isHeadOffice)
+INSERT INTO Branch(branch_id, province, city, street, phone, fax, opening_date, isHeadOffice)
 VALUES('Quebec', 'Montreal', 'Cote Des Neiges', '514-555-1515', '514-555-5151', '2002-03-10', 70031, 0);
 
 
@@ -53,6 +53,11 @@ VALUES( 'Kilian',  'karl', '453  Demo', '2003-11-29', 63333.22, 'zsadas@gmail.co
 INSERT INTO Employee(firstName, lastName, addr, start_date, salary, email, phone, branch_id)
 VALUES( 'Karlito',  'kilimanjaro', '453  Demo', '2003-11-29', 63333.22, 'as3ds@gmail.com', '450-555-3355', 4);
 
+/* Set managers and president */
+UPDATE Branch SET manager_id = 1 WHERE branch_id = 1; -- President
+UPDATE Branch SET manager_id = 3 WHERE branch_id = 2; 
+UPDATE Branch SET manager_id = 5 WHERE branch_id = 3; 
+UPDATE Branch SET manager_id = 7 WHERE branch_id = 4; 
 
 -- ------------------------
 -- Populate Client table
@@ -70,9 +75,9 @@ VALUES('Bob', 'Bush', '456 rue Young', '1995-03-11', '2005-12-28', 'trdhge@gmail
 
 /* Cote Des Neiges */
 INSERT INTO Client(client_id, firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
-VALUES('Tina', 'turner', '675 rue ontario', '1983-02-22', '2003-10-16', 'bgsdos@gmail.com', '450-222-9877', 5);
+VALUES('Tina', 'Turner', '675 rue Ontario', '1983-02-22', '2003-10-16', 'bgsdos@gmail.com', '450-222-9877', 5);
 INSERT INTO Client(client_id, firstName, lastName, addr, dob, joining_date, email, phone,  branch_id)
-VALUES('billy', 'Bush', '456 rue sherbrooke', '1995-03-11', '2003-12-22', 'asdae@gmail.com', '450-222-5675', 5);
+VALUES('billy', 'Bush', '456 rue Sherbrooke', '1995-03-11', '2003-12-22', 'asdae@gmail.com', '450-222-5675', 5);
 
 -- ------------------------
 -- Populate Account table
