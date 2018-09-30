@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  29 SEP 2018 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  29 SEP 2018 18:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -362,49 +362,58 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 92.
- (./creation_commands.sql
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 109.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 3.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 109.
+
+Overfull \hbox (3.7689pt too wide) in paragraph at lines 109--110
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[3]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 114.
  (/usr/share/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 3.
-) (./creation_commands.sql
-Overfull \hbox (23.74413pt too wide) in paragraph at lines 38--39
-[][][][][][][][][][][][][][][][][][][] 
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 114.
+
+Overfull \hbox (60.16881pt too wide) in paragraph at lines 142--143
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
- [4] [5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+
+Overfull \hbox (250.51848pt too wide) in paragraph at lines 146--147
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
  (./warmup_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
 Package rerunfilecheck Info: File `warmup_report.out' has not changed.
 (rerunfilecheck)             Checksum: 4B5D853BF70B756BACBC2F357E8BF11C;594.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
  ) 
 Here is how much of TeX's memory you used:
- 8179 strings out of 492642
- 115465 string characters out of 6135567
- 422027 words of memory out of 5000000
- 11926 multiletter control sequences out of 15000+600000
- 12750 words of font info for 49 fonts, out of 8000000 for 9000
+ 8161 strings out of 492642
+ 115134 string characters out of 6135567
+ 408315 words of memory out of 5000000
+ 11931 multiletter control sequences out of 15000+600000
+ 12403 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,10n,43p,237b,1640s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on warmup_report.pdf (5 pages, 84435 bytes).
+ 32i,11n,43p,229b,1942s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on warmup_report.pdf (5 pages, 69833 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 68 named destinations out of 1000 (max. 500000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 52 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,13 +29,11 @@ CREATE TABLE Employee (
         lastName        varchar(255) not null,
         addr            varchar(255),
         start_date      date not null,
-        salary          decimal(14,2),
+        salary          decimal(14,2) default 0,
         email           varchar(255),
         phone           varchar(255),
-        branch_id       int not null,
-        -- position_id     int not null,
+        branch_id       int,
         foreign key(branch_id) references Branch(branch_id),
-        -- foreign key(position_id) references Positions(position_id),
         primary key(employee_id)
 );
 
@@ -77,43 +75,12 @@ CREATE TABLE Services (
         primary key(service_id)
 );
 
-
-/* Interest Rate  */
-/*      Vary with service, type of accound and has % associated 
-CREATE TABLE InterestRate (
-        service_id      int not null,
-        account_type    varchar(255) not null,
-        rate            float,
-        foreign key(service_id) references Services(service_id),
-);
-*/
-
 /* Charge plans */
 /*      */
 CREATE TABLE ChargePlan (
         charge_id       int not null,
-        draw_limit           float,
+        draw_limit      float,
         charge_value    float, 
-        primary key(charge_option)
+        primary key(charge_id)
 );
-
-
-
-
-/*just test*/
-/*
-Assumptions
-==========
-- Branch:
-        - Location is not null
-        - Opening date is not null
-- Employee
-        - Position needs to be looked up in another table
-        - Salary: decimal type to retain precision
-- Client:
-        -
-- Position:
-        - A list of title ids, with associated tileName
-
-*/
 -- vim:et
