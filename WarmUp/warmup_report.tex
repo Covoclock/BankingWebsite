@@ -5,9 +5,11 @@
 \usepackage[twoside, margin=1in]{geometry}
 \usepackage[bookmarks=true, hidelinks, pagebackref=true, linktoc=all]{hyperref}
 \usepackage{setspace}
+\usepackage{float}
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{enumitem}
 \usepackage{listings}
@@ -94,16 +96,97 @@ Therefore, the value of the manager id cannot be null. All general managers are 
 %Charge plans \ldots
 
 \newpage
+\subsection{E/R Diagram}
+
+\begin{figure}[H]
+  \includegraphics[scale=0.55]{images/DB_WARMUP.png}
+\end{figure}
+
+\newpage
 \section{Schema}
 
-%\begin{figure}[ht]
-%  \lstinputlisting[language=sql, firstline=0, lastline=20]{creation_commands.sql}
-%\end{figure}
-%
-%\begin{figure}[ht]
-%  \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
-%\end{figure}
+\begin{lstlisting}[language=sql]
+/* Employee */
+CREATE TABLE IF NOT EXISTS Employee (
+        employee_id     int not null auto_increment,
+        firstName       varchar(255) not null,
+        lastName        varchar(255) not null,
+        addr            varchar(255),
+        start_date      date not null,
+        salary          decimal(14,2) default 0,
+        email           varchar(255),
+        phone           varchar(255),
+        branch_id       int,
+        primary key(employee_id)
+);
 
+
+/* Branch */
+CREATE TABLE IF NOT EXISTS Branch (
+        branch_id       int not null auto_increment,
+        province        varchar(255) not null,
+        city            varchar(255) not null,
+        street          varchar(255) not null,
+        phone           varchar(255),
+        fax             varchar(255),
+        opening_date    date not null,
+        manager_id      int ,
+        isHeadOffice    tinyint(1),
+        FOREIGN KEY (manager_id) REFERENCES Employee(employee_id),
+        primary key(branch_id)
+);
+
+ALTER TABLE Employee ADD FOREIGN KEY (branch_id) 
+	REFERENCES Branch(branch_id);
+
+
+/* Client */
+CREATE TABLE IF NOT EXISTS Client (
+        client_id       int not null auto_increment,
+        firstName       varchar(255) not null,
+        lastName        varchar(255) not null,
+        addr            varchar(255) not null,
+        dob             date not null,
+        joining_date    date not null,
+        email           varchar(255),
+        phone           varchar(255),
+        category        varchar(255) default 'Regular',
+        branch_id       int not null,
+        foreign key(branch_id) references Branch(branch_id),
+        primary key(client_id)
+);
+
+/* Account */
+CREATE TABLE IF NOT EXISTS Account (
+        account_id      int not null auto_increment,
+        client_id       int not null,
+        account_type    varchar(255) not null,
+        account_option  varchar(255) not null,
+        balance         decimal(14,2),
+        credit_limit    decimal(14,2),
+        interest_rate   float,
+        foreign key(client_id) references Client(client_id),
+        primary key(account_id)
+);
+
+/* Services */
+CREATE TABLE IF NOT EXISTS Services (
+        service_id      int not null auto_increment,
+        service_name    char(50),
+        manager_id      int not null,
+        foreign key(manager_id) references Employee(employee_id),
+        primary key(service_id)
+);
+
+/* Charge plans */
+CREATE TABLE IF NOT EXISTS ChargePlan (
+        charge_id       int not null,
+        draw_limit      float,
+        charge_value    float,
+        primary key(charge_id)
+);
+
+\end{lstlisting}
 
 \newpage
 \section{Queries}
@@ -111,7 +194,7 @@ Therefore, the value of the manager id cannot be null. All general managers are 
 \begin{enumerate}[label=\arabic*.]
   \item All of the tables
     \begin{lstlisting}[language=sql]
-show tables;
+SHOW tables;
   \end{lstlisting}
   \item List of all the branches grouped by city and ordered by oldest branch.
     \begin{lstlisting}[language=sql]
@@ -136,14 +219,14 @@ SELECT * FROM Client WHERE
   \item List of all clients of 'Cote Des Neiges' branch.
     \begin{lstlisting}[language=sql]
 SELECT client_id FROM Client WHERE branch_id IN (
-	SELECT branch_id FROM Branch WHERE area LIKE
+	SELECT branch_id FROM Branch WHERE street LIKE
 	'%Cote Des Neiges%'
     );
   \end{lstlisting}
   \item List of clients who have at least 1,000,000 CDN dollar in their savings account.
     \begin{lstlisting}[language=sql]
 SELECT DISTINCT client_id FROM Account WHERE 
-	account_type = 'savings' AND balance >= 1000000;
+	account_type = 'saving' AND balance >= 1000000;
   \end{lstlisting}
   \item List of all the services along with the general manager for each service.
     \begin{lstlisting}[language=sql]
@@ -152,8 +235,13 @@ SELECT s.service_name, e.firstName, e.lastName
   \end{lstlisting}
   \item Complete details of the president of the bank.
     \begin{lstlisting}[language=sql]
-SELECT * FROM Employee WHERE employee_id = (SELECT manager_id FROM Branch WHERE isHeadOffice = 1);
+SELECT * FROM Employee WHERE employee_id = (
+	SELECT manager_id FROM Branch WHERE isHeadOffice = 1);
   \end{lstlisting}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.55]{images/query_10.png}
+\end{figure}
 
 \end{enumerate}
 
