@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS Branch (
 );
 
 ALTER TABLE Employee 	ADD FOREIGN KEY (branch_id) REFERENCES Branch(branch_id);
--- ALTER TABLE Branch 	ADD FOREIGN KEY (manager_id) REFERENCES Employee(employee_id);
 
 /* Client */
 CREATE TABLE IF NOT EXISTS Client (

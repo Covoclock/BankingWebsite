@@ -104,7 +104,7 @@ VALUES(3, 'saving', 'high interest', 20065.32,  25000.00, 0.04);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
 VALUES(3, 'chequing', 'regular', 45333.32,  30000.00, 0.04);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
-VALUES(4, 'saving', 'enhanced interest', 43544.11,  50000.00, 0.05);
+VALUES(4, 'saving', 'enhanced interest', 1000000.00,  50000.00, 0.05);
 INSERT INTO Account(client_id, account_type, account_option, balance, credit_limit, interest_rate)
 VALUES(4, 'chequing', 'primium', 76554.23,  40000.00, 0.05);
 
