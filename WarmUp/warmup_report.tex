@@ -21,15 +21,19 @@
 \rfoot{\thepage}
 
 \title{
+  \textsc{\huge A Simple Database for a Financial Institution}\\
   Warm-up Project
-  \vspace*{6em}
+  \vspace*{4em}
 }
 \author{
-  Group ID: td\_comp353\_2\\\\
-  Yassin Bah 40077524\\
-  Joel Dusablon Senecal 40035704\\
-  Feng Zhao 40021856\\
-  Alireza Sari 40032394\\ \vspace*{5em}
+  Group ID: \textbf{td\_comp353\_2}\\\\
+  Yassin BAH 40077524\\
+  Joel Dusablon SENECAL 40035704\\
+  Feng ZHAO 40021856\\
+  Alireza SARI 40032394\\ 
+  %Presented to \\
+  %\textsc{Dr. Khaled Jababo}
+  \vspace*{6em}
 }
 
 \begin{document}
@@ -71,7 +75,7 @@ A client needs to be associated with one branch at all times.
 Accounts belong to a specific client and may not be shared.
 Clients, however, may have multiple accounts linked to them.
 An account has to be associated with a current client of the bank.
-An account can only have one option associated with it.%, which could be for a US account
+An account can only have one option associated with it. %, which could be for a US account
 Credit limits are associated with accounts rather than clients.
 Reason being is that a client may have a business account and a personal account, but the credit limit for either account might be different.
 A similar situation occurs with the interest rate, they can vary depending on multiple factors and may hold a range of values.
@@ -86,9 +90,10 @@ A similar situation occurs with the interest rate, they can vary depending on mu
 As stated previously, the services contain a list of services that the bank offers as well as the ID of the general manager for said service.
 Therefore, the value of the manager id cannot be null. All general managers are thus also considered employees.
 
-\subsubsection{Charge Plan}
-Charge plans \ldots
+%\subsubsection{Charge Plan}
+%Charge plans \ldots
 
+\newpage
 \section{Schema}
 
 %\begin{figure}[ht]
@@ -99,16 +104,18 @@ Charge plans \ldots
 %  \lstinputlisting[language=sql, firstline=21, lastline=40]{creation_commands.sql}
 %\end{figure}
 
+
+\newpage
 \section{Queries}
 
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}[label=\arabic*.]
   \item All of the tables
     \begin{lstlisting}[language=sql]
 show tables;
   \end{lstlisting}
   \item List of all the branches grouped by city and ordered by oldest branch.
     \begin{lstlisting}[language=sql]
-SELECT * FROM Branch ORDER BY city ASC, DATE(opening_date) ASC;
+SELECT * FROM Branch ORDER BY city ASC, opening_date ASC;
   \end{lstlisting}
   \item List of all clients with DOB between 1990 and 2017.
     \begin{lstlisting}[language=sql]

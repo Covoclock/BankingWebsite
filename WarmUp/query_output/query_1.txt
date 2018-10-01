@@ -1,0 +1,12 @@
+mysql> SHOW tables;
++--------------------+
+| Tables_in_tdc353_2 |
++--------------------+
+| Account            |
+| Branch             |
+| ChargePlan         |
+| Client             |
+| Employee           |
++--------------------+
+5 rows in set (0.00 sec)
+

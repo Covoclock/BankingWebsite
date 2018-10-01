@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1538348027 "warmup_report.tex" "warmup_report.pdf" "warmup_report" 1538348027
+["pdflatex"] 1538353256 "warmup_report.tex" "warmup_report.pdf" "warmup_report" 1538353257
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1536122179 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1536122179 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1536122179 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -8,6 +8,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1536122179 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1536122179 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1536122179 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1536122179 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1536122179 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1536122179 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1536122179 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -20,6 +21,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1536122179 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1536122179 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1536122179 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1536122179 32001 6aeea3afe875097b1eb0da29acd61e28 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1536122179 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1536122179 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1536122179 32362 179c33bbf43f19adbb3825bb4e36e57a ""
@@ -67,9 +69,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1536122179 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1536509970 2756227 3af771b8c7802fcc4de3c67a29c4e776 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1536509958 7908118 0ca4a00fadc38a4839c512e787b231bb ""
-  "warmup_report.aux" 1538348027 1607 0458c5a5ca4eefdf10387daaa9da5aac ""
-  "warmup_report.out" 1538348027 594 4b5d853bf70b756bacbc2f357e8bf11c ""
-  "warmup_report.tex" 1538347909 6620 192416a23a97944a1d1b194102c59771 ""
+  "warmup_report.aux" 1538353256 1503 a4050c87a2ef0ce6c24106d51ae2642d ""
+  "warmup_report.out" 1538353256 523 d2ca62e760bc742b8223d8cd33f68d9c ""
+  "warmup_report.tex" 1538353255 6763 6e55190a5f2f32ec25572ff7a8b4db19 ""
   (generated)
   "warmup_report.log"
   "warmup_report.out"
