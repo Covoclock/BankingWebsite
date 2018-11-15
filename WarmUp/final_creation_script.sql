@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS ClientLogin (
 */
 CREATE TABLE IF NOT EXISTS Account (
         account_id      int not null auto_increment,
-        client_id       int not null,f
+        client_id       int not null,
         account_type    varchar(255) not null,
         chargePlan_id   int,            -- for charge plan (number of max charges and montly fee)
         balance         decimal(14,2),
@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS Bills(
         account1_id     int not null,
         account2_id     int not null,
         recurring       tinyint(1),
-        primary key(
+        primary key(bill_id)
+);
         
 -- vim:et

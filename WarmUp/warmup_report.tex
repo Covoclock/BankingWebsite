@@ -28,7 +28,7 @@
   \vspace*{4em}
 }
 \author{
-  Group ID: \textbf{td\_comp353\_2}\\\\
+  Group ID: \textbf{tdc\_comp353\_2}\\\\
   Yassin BAH 40077524\\
   Joel Dusablon SENECAL 40035704\\
   Feng ZHAO 40021856\\
@@ -274,7 +274,7 @@ SELECT DISTINCT client_id FROM Account WHERE
 \end{figure}
   \item List of all the services along with the general manager for each service.
     \begin{lstlisting}[language=sql]
-SELECT s.service_name, e.firstName, e.lastName 
+SELECT e.employee_id,  s.service_name, e.firstName, e.lastName 
 	FROM Services s, Employee e WHERE s.manager_id = e.employee_id;
   \end{lstlisting}
 \begin{figure}[H]
