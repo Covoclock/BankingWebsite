@@ -4,31 +4,43 @@
 
 require "credentialCheck.php";
 
-$name = $_POST["text"];
+$name = $_POST["userInfo"];
 $psw  = $_POST["password"];
 
-if (!isset($_POST["text"] || !isset($_POST["password"])){
-	// Something is missing/empty
-	header("Location: /");
-}
+//print_r(array_values($_POST));
+//echo("<br>");
+//echo $name;
+//echo("<br>");
+//echo $psw;
+//echo("<br>");
 
+if (!isset($_POST["userInfo"]) || !isset($_POST["password"])){
+	// Something is missing/empty
+	header("Location: index.php");
+	exit();
+} 
+else{
 // Prep query
-$query = "SELECT psw FROM ClientLogin WHERE client_id='?' LIMIT 1";
+//$pswFound = "";
+$query = "SELECT psw FROM ClientLogin WHERE client_id= ? LIMIT 1";
 if ($psw_query = $dbc->prepare($query)){
 	$psw_query->bind_param("s", $name);
 	$psw_query->execute();
+	$psw_query->bind_result($pswFound);
+	$psw_query->fetch();
+	$psw_query->close();
+	echo $pswFound;
 }else{
 	$error = $dbc->errno. "<br>". $dbc->error;
 	echo $error;
-	exit;
+	header("Location: index.php");
+	exit();
 }
 
 // Compare result with given password
-$results = $psw_query->fetch();
-
 $msg = "";
 // Found a result
-if(count($result) > 0  && $result['psw'] == $psw ){
+if( isset($pswFound)  && $pswFound == $psw ){
 	$_SESSION['user_id'] = $name;
 	$_SESSION['type'] = "client";
 } 
@@ -36,6 +48,10 @@ if(count($result) > 0  && $result['psw'] == $psw ){
 else{
 	$msg = "Failed to login, please try again.";
 	echo $msg;
-	//header("Location: /login.php");
+	header("Location: index.php");
 }
+}
+
+// Close mysql connection
+$dbc->close();
 ?>

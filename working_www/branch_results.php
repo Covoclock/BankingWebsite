@@ -36,7 +36,7 @@ switch ($searchtype) {
             exit;}
 }
 
-$conn = new mysqli('tdc353.encs.concordia.ca', 'tdc353_2', '1yfja853');
+$conn = mysqli_connect('tdc353.encs.concordia.ca', 'tdc353_2', '1yfja853','tdc353_2');
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -47,7 +47,7 @@ $sql = "SELECT * FROM Employee";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0)  {
-    
+
     echo "success!";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -62,4 +62,4 @@ mysqli_close($conn);
 
 ?>
 </body>
-</html>
+</html> 

@@ -60,10 +60,10 @@
     
         <div class="container">
     
-          <form class="form-signin" action='clientLoging.php'>
+          <form class="form-signin" method='post' action='clientLoging.php'>
             <h2 class="form-signin-heading">Bank Signin Page</h2>
-            <input type="text" class="input-block-level" placeholder="Email address">
-            <input type="password" class="input-block-level" placeholder="Password">
+            <input type="text" class="input-block-level" name ='userInfo' placeholder="Email address">
+            <input type="password" class="input-block-level" name='password' placeholder="Password">
             <label class="checkbox">
               <input type="checkbox" value="remember-me"> Remember me
             </label>
