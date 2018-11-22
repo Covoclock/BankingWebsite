@@ -81,12 +81,11 @@ CREATE TABLE IF NOT EXISTS ClientLogin (
 CREATE TABLE IF NOT EXISTS Account (
         account_id      int not null auto_increment,
         client_id       int not null,
-        account_type    varchar(255) not null,
+        account_type    varchar(255) not null, -- checking, savings, credit 
         chargePlan_id   int,            -- for charge plan (number of max charges and montly fee)
         balance         decimal(14,2),
         credit_limit    decimal(14,2),  -- only used for credit type
         interest_rate   float,          -- positive and negative val 
-        type            varchar(255),   -- checking, savings, credit 
         lvl             varchar(255),   -- personal, business or corporate
         transactionLeft int, -- defaults to whats in charge plan
         foreign key(client_id) references Client(client_id),
