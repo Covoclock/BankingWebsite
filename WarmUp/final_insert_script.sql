@@ -148,15 +148,15 @@ VALUES('billy', 'Bush', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '0', '
 -- ------------------------
 
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
-VALUE (0, 'PERFORMANCE', 10000.00, 20.00);
+VALUE (0, 'PERFORMANCE', 20, 10);
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
-VALUE (1, 'PERMIUM', 8000.00, 18.00);
+VALUE (1, 'PREMIUM', 200, 50);
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
-VALUE (2, 'PLUS', 6000.00, 15.00);
+VALUE (2, 'PLUS', 50, 20);
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
-VALUE (3, 'AIRMILES', 5000.00, 12.00);
+VALUE (3, 'AIRMILES', 40, 25);
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
-VALUE (4, 'PRACTICAL', 4000.00, 10.00);
+VALUE (4, 'PRACTICAL', 5, 0);
 
 
 -- ------------------------
