@@ -32,9 +32,8 @@ function transferTo($account1ID, $account2ID, $amount)
     }
 
     else {
-        $conn = getDBConnection();
-        $instancedAcc1 = generateInstancedAccountByID($conn, $account1ID);
-        $instancedAcc2 = generateInstancedAccountByID($conn, $account2ID);
+        $instancedAcc1 = generateInstancedAccountByID($dbc, $account1ID);
+        $instancedAcc2 = generateInstancedAccountByID($dbc, $account2ID);
 
         if($instancedAcc1->getTransactionMade() >= $instancedAcc1->getTransactionMade())
         {
@@ -46,12 +45,12 @@ function transferTo($account1ID, $account2ID, $amount)
 
         $sql = "";
 
-        if ($conn->query($sql) === TRUE) {
+        if ($dbc->query($sql) === TRUE) {
             echo "transaction successful";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $dbc->error;
         }
-        $conn->close();
+        $dbc->close();
     }
 }
 
