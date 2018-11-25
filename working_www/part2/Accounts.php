@@ -7,7 +7,7 @@
  */
 
 namespace BankingApp;
-
+include "../credentialCheck.php";
 
 class Accounts
 {
@@ -20,6 +20,8 @@ class Accounts
     private $interests;
     private $level;
     private $transactionMade;
+    // Database connection object
+    private $dbc = $dbc;
 
     //chargePlan related Variables are stored here to ease process
     private $TransactionLimit;
@@ -49,25 +51,48 @@ class Accounts
         $this->credit_limit = $credit_limit;
         $this->interests = $interests;
         $this->level = $level;
+	// To change (shoudl be transactionsLeft) and 
+	// add maxTransaction in ChargePlan to replace transactionLimit
         $this->transactionMade = $transactionMade;
         $this->TransactionLimit = $TransactionCost;
         $this->chargePrice = $chargePrice;
+    }
+
+    /* Generates object from account_id
+     * @param id Account_id
+     */
+    public static function accountFromID($id){
+	   $query = "SELECT * FROM Account WHERE account_id = $id";
+	   $result = $this->dbc-query($query);
+	   if ($row =  $result->fetch_assoc()){
+		   $clientID = $row['client_id'];
+		   $accountType = $row['account_type'];
+		   $chargePlan_id= $row['chargePlan_id'];
+		   $balance = $row['balance'];
+		   $credit_limit = $row['credit_limit'];
+		   $interest_rate = $row['interest_rate'];
+		   $lvl = $row['lvl'];
+		   $transactionLeft = $row['transactionLeft'];
+
+		   $instance = new self($id, $clientID, $accountType, $chargePlan_id, $balance, $credit_limit, $interest_rate, $lvl, $transactionLeft, 0, 0);
+		   return $instance;
+	   }
     }
 
     /*
      * ------------CUSTOM METHODS -------------------
      */
 
-    public function UpdateByID($conn)
+    public function UpdateByID()
     {
         $sql = "UPDATE account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
         balance = '$this->balance', credit_limit = '$this->credit_limit', interest_rate = '$this->interests', lvl = '$this->level',
         transactionLeft ='$this->transactionMade' WHERE account_id=$this->ID";
 
-        if ($conn->query($sql) === TRUE) {
+        if ($this->dbc->query($sql) === TRUE) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating record: " . $conn->error;
+            echo "Error updating record: " . $this->dbc->error;
         }
 
     }
