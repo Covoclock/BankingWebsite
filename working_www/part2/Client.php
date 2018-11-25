@@ -8,9 +8,10 @@
  * @copyright (C) 2018 Sebastien Bah <sebastien.bah@mail.mcgill.ca>
  * @license MIT
  */
-include "../credentialCheck.php";
-include "Accounts.php";
+require dirname(__FILE__)."/../credentialCheck.php";
+require "Accounts.php";
 
+echo $__DIR__;
 
 /* Client Class */
 class Client{
@@ -26,7 +27,6 @@ class Client{
 	private $phone;
 	private $category;
 	private $branch_id;
-	private $dbc = $dbc;
 
 	// Holds all the accounts associated with this client
 	private $AccoundList;
@@ -34,40 +34,58 @@ class Client{
 	 * @param $id
 	 */
 	public function __construct($id){
+		global $dbc;
 		// Search Client table to find the rest
-		$query = "SELECT * FROM CLient WHERE client_id = $id";
-		$result = $this->dbc->query($query);
-		$row = $result->fetch_assoc();
-		if($row){
-			$this->id	 = $id;
-			$this->fName    = $row['firstName'];
-			$this->lName    = $row['lastName'];
-			$this->city     = $row['city'];
-			$this->province = $row['province'];
-			$this->dob      = $row['dob'];
-			$this->join_date= $row['join_date'];
-			$this->standing = $row['standing'];
-			$this->email    = $row['email'];
-			$this->phone    = $row['phone'];
-			$this->category = $row['category'];
-                      	$this->branch_id= $row['branch_id'];
-			this->generateAccountList();
+		$query = "SELECT * FROM Client WHERE client_id = $id";
+		if($result = $dbc->query($query)){
+			$row = $result->fetch_assoc();
+			if($row){
+				$this->id	 = $id;
+				$this->fName    = $row['firstName'];
+				$this->lName    = $row['lastName'];
+				$this->city     = $row['city'];
+				$this->province = $row['province'];
+				$this->dob      = $row['dob'];
+				$this->join_date= $row['join_date'];
+				$this->standing = $row['standing'];
+				$this->email    = $row['email'];
+				$this->phone    = $row['phone'];
+				$this->category = $row['category'];
+                	      	$this->branch_id= $row['branch_id'];
+				$this->generateAccountList();
+			}
 		}
 	}
 
 	/* Finds all the accounts associated with said client
 	 */
 	public function generateAccountList(){
+		global $dbc;
 		$query = "SELECT * FROM Account WHERE client_id = $this->id";
-		$result = $this->dbc->query($query);
+		$result = $dbc->query($query);
 
 		$i = 0;
 		while($row = $result->fetch_assoc()){
-			$this->AccoundList[$i] = Account::accountFromID($row['account_id']);
+			$this->AccoundList[$i] = Accounts::accountFromID($row['account_id']);
 			$i++;
 		}
 	}
 
+    	public function __toString(){
+	    $s = "";
+    	    $s .= "<strong>Client ID</strong>: $this->id <br>";
+    	    $s .= "Associated with <strong>Branch</strong> # {$this->branch_id}<br>";
+    	    $s .= "<strong>Name</strong>: {$this->fName} {$this->lName} <br>";
+    	    $s .= "<strong>Location</strong>: {$this->city}, {$this->province} <br>";
+    	    $s .= "<strong>Date of Birth</strong>: {$this->dob} <br>";
+    	    $s .= "<strong>Joined </strong>on {$this->join_date} <br>";
+    	    $s .= "Standing is ";
+	    if ($this->standing == '1') $s .= "<em>good</em>"; // if '0' then bad standing, cant get credit card
+            else $s .= "<em>not good yet</em>";
+    	    $s .= "<br>Email: {$this->email} <br>";
+    	    $s .= "<strong>Phone</strong>: {$this->phone} <br>";
+	    return $s;
+    	}
 
 	/*
     	 *  -----------GETTERS AND SETTERS --------------
@@ -78,7 +96,7 @@ class Client{
     	 */
     	public function getID()
     	{
-    	    return $this->ID;
+    	    return $this->id;
     	}
 
     	/**
@@ -86,7 +104,7 @@ class Client{
     	 */
     	public function setID($ID)
     	{
-    	    $this->ID = $ID;
+    	    $this->id = $ID;
     	}
 
     	/**

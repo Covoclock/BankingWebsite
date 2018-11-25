@@ -1,13 +1,23 @@
 <?php
-	session_start();
+session_start();
+require "permissionCheck.php";
+include "part2/Client.php";
+verifySession("client");
 
+
+if (isset($_SESSION['user_id'])){
+	$client =  new Client($_SESSION['user_id']);
+}else{
+	//client id not set in session properly
+	header("Location: index.php");
+}
 ?>
 
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html>
 
     <head>
-        <title>COMP 353 - Database</title>
+        <title>Client Hub</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -64,25 +74,12 @@
         </head>
 
         <body>
+	<h1> Client Hub </h1>
+	<?php echo "<h2>Client Info</h2><p> {$client}</p>"; ?>
+
+	<!-- Need to list all client accounts -->
 
             <div class="container">
-
-                <form class="form-signin" method='post' action='clientLoging.php'>
-                    <h2 class="form-signin-heading">Bank Signin Page</h2>
-                    <input type="text" class="input-block-level" name='userInfo' placeholder="User ID">
-                    <input type="password" class="input-block-level" name='password' placeholder="Password">
-                    <fieldset class='from-group'>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type='radio' class='form-check-input' name='type' value='client' checked='checked'>Client</label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type='radio' class='form-check-input' name='type' value='employee'>Employee</label>
-                        </div>
-                    </fieldset>
-                    <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-                </form>
                 <!-- Testing part -->
                 <a href="branch-search.html">Branch Search</a>
                 <br>
@@ -122,3 +119,4 @@
         </body>
 
     </html>
+

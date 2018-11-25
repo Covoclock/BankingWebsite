@@ -1,12 +1,13 @@
 <?php
-include_once('connection.php');
+session_start();
 // Imports and executes the login to the SQL server
 // allows you to use the database $dbc variable
-session_start();
-require "credentialCheck.php";
+include "credentialCheck.php";
+include "permissionCheck.php";
+verifySession("client");
 
-
-$account_id = $_COOKIE['UsedAccount'];
+//$account_id = $_COOKIE['UsedAccount'];
+$account_id = '1'; 
 
 if(isset($_POST['submitTransaction'])){
     $recipientAccountId = $_POST['recipientAccountId'];
@@ -14,17 +15,20 @@ if(isset($_POST['submitTransaction'])){
     $newTransactionQuery = "INSERT INTO Transactions (account1_id, account2_id, amount, dt) VALUES ('$account_id', '$recipientAccountId', '$transactionAmount', GETDATE())";
 }
 
-$retrieveAccount="SELECT * FROM Account WHERE account_id = $account_id";
-$resultAccount=mysql_query($retrieveAccount);
-$valAccountId=mysql_fetch_assoc($resultAccount).['account_id'];
-$valAccountType=mysql_fetch_assoc($resultAccount).['account_type'];
-$valAccountBalance=mysql_fetch_assoc($resultAccount).['balance'];
+$retrieveAccount="SELECT * FROM Account WHERE account_id = {$account_id}";
+$resultAccount=$dbc->query($retrieveAccount);
+$fetchAccount = $resultAccount->fetch_assoc();
+var_dump($fetchAccount);
+$valAccountId=$fetchAccount['account_id'];
+$valAccountType=$fetchAccount['account_type'];
+$valAccountBalance=$fetchAccount['balance'];
 
-$retrieveTransaction="SELECT * FROM Transactions WHERE (account1_id = $account_id OR account2_id = $account_id) AND (dt < DATEADD(month, -6, GETDATE()) ORDER BY dt DESC";
-$resultTransaction=mysql_query($retrieveTransaction);
+// Need to double check this
+$retrieveTransaction="SELECT * FROM Transactions WHERE (account1_id = $account_id OR account2_id = $account_id) AND dt > DATE_SUB(now(), INTERVAL 6 MONTH) ORDER BY dt DESC";
+$resultTransaction=$dbc->query($retrieveTransaction);
 
 $retrieveBill="SELECT * FROM Bills WHERE account1_id = $account_id";
-$resultBill=mysql_query($retrieveBill);
+$resultBill=$dbc->query($retrieveBill);
 ?>
 
 <!DOCTYPE html>
@@ -59,19 +63,13 @@ $resultBill=mysql_query($retrieveBill);
 
 <h1>Account Details</h1>
     <p><label for="account_id">Account ID</label>
-        <?php
-            echo '<input type="text" id="account_id" name="account_id" value="<?php echo $valAccountId; ?>" maxlength="15" size="15" />';
-        ?>
+            <input type="text" id="account_id" name="account_id" value="<?php echo $valAccountId; ?>" maxlength="15" size="15" />
     </p>
     <p><label for="account_type">Account Type</label>
-        <?php
-            echo '<input type="text" id="account_type" name="account_type" value="<?php echo $valAccountType; ?>" maxlength="15" size="15" />';
-        ?>
+     	    <input type="text" id="account_type" name="account_type" value="<?php echo $valAccountType; ?>" maxlength="15" size="15" />
     </p>
     <p><label for="account_balance">Account Balance</label>
-        <?php
-            echo '<input type="text" id="account_type" name="account_type" value="<?php echo $valAccountBalance; ?>" maxlength="15" size="15" />';
-        ?>
+     	    <input type="text" id="account_type" name="account_type" value="<?php echo $valAccountBalance; ?>" maxlength="15" size="15" />
     </p>
             
 <h1>Transactions History</h1>
@@ -84,15 +82,20 @@ $resultBill=mysql_query($retrieveBill);
             <th>Date</th>
         </tr>
         <?php
-            while($transactions = mysql_fetch_assoc($resultTransaction)) {
+	if($resultTransaction){
+            while($transactions = $resultTransaction->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" .$transactions['tid']."</td>";
                 echo "<td>" .$transactions['account1_id']."</td>";
                 echo "<td>" .$transactions['account2_id']."</td>";
-                echo "<td>" .$transactions['amount']."</td>";
+		// Arrange sign of amount
+		if ($transactions['account1_id']== $account_id) $amount = "-".$transactions['amount'];
+ 		else $amount = $transactions['amount'];
+                echo "<td>" .$amount."</td>";
                 echo "<td>" .$transactions['dt']."</td>";
                 echo "</tr>";
             }
+	}
         ?>
     </table>
 
@@ -111,7 +114,8 @@ $resultBill=mysql_query($retrieveBill);
             <th>Amount</th>
         </tr>
         <?php
-            while($bills = mysql_fetch_assoc($resultBill)) {
+            while($bills = $resultBill->fetch_assoc()) {
+		var_dump($bills);
                 echo "<tr>";
                 echo "<td>" .$bills['bill_id']."</td>";
                 echo "<td>" .$bills['account1_id']."</td>";

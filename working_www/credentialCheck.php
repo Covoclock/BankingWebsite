@@ -12,12 +12,4 @@ try{
 	die("Connection failed: " + $e->getMessage());
 }
  
-
-//$result = mysqli_query($dbc, 'SELECT * FROM Client;');
-//
-//if ($result->num_rows > 0) {
-//    while ($row = mysqli_fetch_row($result)){
-//        printf("%s\t%s\t%s\t%s\t%s<br>", $row[0], $row[1], $row[2], $row[3], $row[4]);
-//    }
-//}
 ?>

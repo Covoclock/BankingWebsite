@@ -6,8 +6,7 @@
  * Time: 4:18 PM
  */
 
-namespace BankingApp;
-include "../credentialCheck.php";
+require dirname(__FILE__)."/../credentialCheck.php";
 
 class Accounts
 {
@@ -20,8 +19,6 @@ class Accounts
     private $interests;
     private $level;
     private $transactionMade;
-    // Database connection object
-    private $dbc = $dbc;
 
     //chargePlan related Variables are stored here to ease process
     private $TransactionLimit;
@@ -62,8 +59,9 @@ class Accounts
      * @param id Account_id
      */
     public static function accountFromID($id){
+	   global $dbc;
 	   $query = "SELECT * FROM Account WHERE account_id = $id";
-	   $result = $this->dbc-query($query);
+	   $result = $dbc->query($query);
 	   if ($row =  $result->fetch_assoc()){
 		   $clientID = $row['client_id'];
 		   $accountType = $row['account_type'];
@@ -83,16 +81,16 @@ class Accounts
      * ------------CUSTOM METHODS -------------------
      */
 
-    public function UpdateByID()
-    {
+    public function UpdateByID() {
+	global $dbc;
         $sql = "UPDATE account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
         balance = '$this->balance', credit_limit = '$this->credit_limit', interest_rate = '$this->interests', lvl = '$this->level',
         transactionLeft ='$this->transactionMade' WHERE account_id=$this->ID";
 
-        if ($this->dbc->query($sql) === TRUE) {
+        if ($dbc->query($sql) === TRUE) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating record: " . $this->dbc->error;
+            echo "Error updating record: " . $dbc->error;
         }
 
     }
