@@ -6,7 +6,8 @@
  * Time: 4:18 PM
  */
 
-require dirname(__FILE__)."/../credentialCheck.php";
+namespace BankingApp;
+require_once dirname(__FILE__)."/../credentialCheck.php";
 
 class Accounts
 {
@@ -58,8 +59,7 @@ class Accounts
     /* Generates object from account_id
      * @param id Account_id
      */
-    public static function accountFromID($id){
-	   global $dbc;
+    public static function accountFromID($dbc,$id){
 	   $query = "SELECT * FROM Account WHERE account_id = $id";
 	   $result = $dbc->query($query);
 	   if ($row =  $result->fetch_assoc()){
@@ -81,9 +81,16 @@ class Accounts
      * ------------CUSTOM METHODS -------------------
      */
 
-    public function UpdateByID() {
-	global $dbc;
-        $sql = "UPDATE account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
+	public function findBranchID($dbc){
+		$query = "select * from Client where client_id = {$this->ID}";
+		$result = $dbc->query($query);
+		if ($row = $results->fetch_assoc()){
+			return row['branch_id'];
+		}
+	}
+
+    public function UpdateByID($dbc) {
+        $sql = "UPDATE Account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
         balance = '$this->balance', credit_limit = '$this->credit_limit', interest_rate = '$this->interests', lvl = '$this->level',
         transactionLeft ='$this->transactionMade' WHERE account_id=$this->ID";
 
@@ -97,20 +104,17 @@ class Accounts
 
 
 
-    public function toString()
+    public function __toString()
     {
-        echo "</<br>";
-        echo "ID: $this->ID </br>";
-        echo "clientID: $this->clientID </br>";
-        echo "accountType: $this->accountType </br>";
-        echo "chargePlan_ID: $this->chargePlan_ID </br>";
-        echo "balance: $this->balance </br>";
-        echo "credit_limit: $this->credit_limit </br>";
-        echo "interests: $this->interests </br>";
-        echo "level: $this->level </br>";
-        echo "transactionMade: $this->transactionMade </br>";
-        echo "TransactionLimit: $this->TransactionLimit </br>";
-        echo "chargePrice: $this->chargePrice </br>";
+	$s = "";
+        $s .=  "<br>";
+        $s .=  "<strong>Account ID</strong>: $this->ID <br>";
+        $s .=  "<strong>Account Type</strong>: $this->accountType <br>";
+        $s .=  "<strong>Balance</strong>: $this->balance <br>";
+        $s .=  "<strong>Credit Limit</strong>: $this->credit_limit <br>";
+        $s .=  "<strong>Interests</strong>: $this->interests <br>";
+        $s .=  "<strong>Level</strong>: $this->level <br>";
+	return $s;
     }
 
     /*

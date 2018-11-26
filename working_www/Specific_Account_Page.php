@@ -2,12 +2,13 @@
 session_start();
 // Imports and executes the login to the SQL server
 // allows you to use the database $dbc variable
-include "credentialCheck.php";
-include "permissionCheck.php";
+require_once "credentialCheck.php";
+require_once "permissionCheck.php";
+require_once "part2/Accounts.php";
 verifySession("client");
 
-//$account_id = $_COOKIE['UsedAccount'];
-$account_id = '1'; 
+$account_id = $_POST['accountID'];
+$account_obj = \BankingApp\Accounts::accountFromID($dbc, $account_id);
 
 if(isset($_POST['submitTransaction'])){
     $recipientAccountId = $_POST['recipientAccountId'];
@@ -18,7 +19,7 @@ if(isset($_POST['submitTransaction'])){
 $retrieveAccount="SELECT * FROM Account WHERE account_id = {$account_id}";
 $resultAccount=$dbc->query($retrieveAccount);
 $fetchAccount = $resultAccount->fetch_assoc();
-var_dump($fetchAccount);
+//var_dump($fetchAccount);
 $valAccountId=$fetchAccount['account_id'];
 $valAccountType=$fetchAccount['account_type'];
 $valAccountBalance=$fetchAccount['balance'];
@@ -35,45 +36,37 @@ $resultBill=$dbc->query($retrieveBill);
 <html>
 <head>
     <title>Specific Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-    <style type="text/css">
-
-        fieldset {
-            width: 75%;
-            border: 2px solid #cccccc;
-        }
-
-        label {
-            width: 175px;
-            float: left;
-            text-align: left;
-            font-weight: bold;
-        }
-
-        input {
-            border: 1px solid #000;
-            padding: 6px;
-        }
-
-    </style>
 
 </head>
 
 <body>
 
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <style type="text/css">
+            body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #f5f5f5;
+            }
+        </style>
+
+
 <h1>Account Details</h1>
-    <p><label for="account_id">Account ID</label>
-            <input type="text" id="account_id" name="account_id" value="<?php echo $valAccountId; ?>" maxlength="15" size="15" />
-    </p>
-    <p><label for="account_type">Account Type</label>
-     	    <input type="text" id="account_type" name="account_type" value="<?php echo $valAccountType; ?>" maxlength="15" size="15" />
-    </p>
-    <p><label for="account_balance">Account Balance</label>
-     	    <input type="text" id="account_type" name="account_type" value="<?php echo $valAccountBalance; ?>" maxlength="15" size="15" />
-    </p>
+	<div class=''>
+	<?php echo "<p> {$account_obj}</p>"; ?>
+	</div>
+	<hr>
             
 <h1>Transactions History</h1>
-	<table align="center" border="1px" style="width:600px; line-height:30px;">
+	<table class='table' >
+	<thead class='thead-dark'>
         <tr>
         	<th>Transaction ID</th>
             <th>Sender Account ID</th>
@@ -81,6 +74,8 @@ $resultBill=$dbc->query($retrieveBill);
             <th>Amount</th>
             <th>Date</th>
         </tr>
+	</thead>
+	<tbody>
         <?php
 	if($resultTransaction){
             while($transactions = $resultTransaction->fetch_assoc()) {
@@ -97,25 +92,24 @@ $resultBill=$dbc->query($retrieveBill);
             }
 	}
         ?>
+	</tbody>
     </table>
 
-    <form action="template.php" method="post">
-    <p><input type="text" name="recipientAccountId"></p>
-    <p><input type="text" name="transactionAmount"></p>
-    <p><input type="submit" name="submitTransaction" value="Submit New Transaction"></p>
-    </form>
 
 <h1>Bills</h1>
-    <table align="center" border="1px" style="width:600px; line-height:30px;">
+    <table class='table' align="center" border="1px" style="width:600px; line-height:30px;">
+	<thead class='thead-dark'>
         <tr>
         	<th>Bill ID</th>
             <th>Sender Account ID</th>
             <th>Recepient Account ID</th>
             <th>Amount</th>
         </tr>
+	</thead>
+	<tbody>
         <?php
             while($bills = $resultBill->fetch_assoc()) {
-		var_dump($bills);
+		//var_dump($bills);
                 echo "<tr>";
                 echo "<td>" .$bills['bill_id']."</td>";
                 echo "<td>" .$bills['account1_id']."</td>";
@@ -124,6 +118,9 @@ $resultBill=$dbc->query($retrieveBill);
                 echo "</tr>";
             }
         ?>
+	</tbody>
     </table>
+	<script src="js/jquery.js"></script>
+	<?php $dbc->close();?>
 </body>
 </html>

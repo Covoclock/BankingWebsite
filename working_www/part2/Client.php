@@ -11,7 +11,6 @@
 require dirname(__FILE__)."/../credentialCheck.php";
 require "Accounts.php";
 
-echo $__DIR__;
 
 /* Client Class */
 class Client{
@@ -29,7 +28,7 @@ class Client{
 	private $branch_id;
 
 	// Holds all the accounts associated with this client
-	private $AccoundList;
+	private $AccountList;
 	/* Class constructor 
 	 * @param $id
 	 */
@@ -52,24 +51,24 @@ class Client{
 				$this->phone    = $row['phone'];
 				$this->category = $row['category'];
                 	      	$this->branch_id= $row['branch_id'];
-				$this->generateAccountList();
+				$this->generateAccountList($dbc);
 			}
 		}
 	}
 
 	/* Finds all the accounts associated with said client
 	 */
-	public function generateAccountList(){
-		global $dbc;
+	public function generateAccountList($dbc){
 		$query = "SELECT * FROM Account WHERE client_id = $this->id";
 		$result = $dbc->query($query);
 
 		$i = 0;
 		while($row = $result->fetch_assoc()){
-			$this->AccoundList[$i] = Accounts::accountFromID($row['account_id']);
+			$this->AccountList[$i] = \BankingApp\Accounts::accountFromID($dbc,$row['account_id']);
 			$i++;
 		}
 	}
+
 
     	public function __toString(){
 	    $s = "";
@@ -82,7 +81,7 @@ class Client{
     	    $s .= "Standing is ";
 	    if ($this->standing == '1') $s .= "<em>good</em>"; // if '0' then bad standing, cant get credit card
             else $s .= "<em>not good yet</em>";
-    	    $s .= "<br>Email: {$this->email} <br>";
+    	    $s .= "<br><strong>Email</strong>: {$this->email} <br>";
     	    $s .= "<strong>Phone</strong>: {$this->phone} <br>";
 	    return $s;
     	}
@@ -90,6 +89,10 @@ class Client{
 	/*
     	 *  -----------GETTERS AND SETTERS --------------
     	 */
+
+	/* Get Array of Accounts
+	*/
+	public function getAccounts(){return $this->AccountList;}
 
     	/**
     	 * @return mixed

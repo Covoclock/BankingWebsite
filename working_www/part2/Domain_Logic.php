@@ -6,8 +6,8 @@
  * Time: 4:08 PM
  */
 
-include "..\AdminSearch\DataGateway.php";
-include "Accounts.php";
+require_once dirname(__FILE__)."/../credentialCheck.php";
+require_once "Accounts.php";
 
 /*
     $chargePlanIDs = array(0,1,2,3,4);
@@ -54,6 +54,13 @@ function transferTo($account1ID, $account2ID, $amount)
     }
 }
 
+function createTransaction($dbc, \BankingApp\Accounts $account1, \BankingApp\Accounts $account2, $amount){
+	$id1 = $account1->getID();
+	$id2 = $account2->getID();
+	$dt = date('Y-m-d H:i:s');
+	$query = "insert into Transactions(account1_id, account2_id, amount, dt) VALUES ('$id1', '$id2','$amount', '$dt')";
+	return $dbc->query($query);
+}
 
 /**
  * @param \BankingApp\Accounts $account1

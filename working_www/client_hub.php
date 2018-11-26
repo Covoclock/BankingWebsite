@@ -1,9 +1,10 @@
 <?php
 session_start();
+require "credentialCheck.php";
 require "permissionCheck.php";
 include "part2/Client.php";
 verifySession("client");
-
+//var_dump($dbc);
 
 if (isset($_SESSION['user_id'])){
 	$client =  new Client($_SESSION['user_id']);
@@ -74,9 +75,133 @@ if (isset($_SESSION['user_id'])){
         </head>
 
         <body>
-	<h1> Client Hub </h1>
+	<h1 class='text-center'> Client Hub </h1>
+	<div class='container'>
 	<?php echo "<h2>Client Info</h2><p> {$client}</p>"; ?>
+	</div>
 
+
+	<hr>
+	<div class='container'>
+	<h2> Accounts Info </h2>
+
+	<form method='post' action='Specific_Account_Page.php'>
+		<table class="table">
+		  <thead class='thead-dark'>
+		    <tr>
+		      <th scope="col">Select</th>
+		      <th scope="col">Account Number</th>
+		      <th scope="col">Level</th>
+		      <th scope="col">Balance</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		<?php
+			$accounts = $client->getAccounts();
+		
+			for ($i=0; $i<count($accounts); $i++){
+				echo "<tr>";
+				echo "<td style='text-align:center' scope='row'><input type='radio' class='form-check-input' name='accountID' value='{$accounts[$i]->getID()}'";
+				if($i==0) echo " checked='checked'";
+				echo "></td>";
+				echo "<td>{$accounts[$i]->getID()}</td>";
+				$accountLevel = ucwords($accounts[$i]->getLevel());
+				echo "<td>{$accountLevel}</td>";
+				echo "<td>{$accounts[$i]->getBalance()}$</td>";
+				echo "</tr>";	
+			}
+		?>
+		  </tbody>
+		</table>
+	<button type='submit' class='btn btn-primary'>See Account</button>
+	</form>
+
+	<br>
+    	<h3>Transfer Money</h3>
+	<div class='center-block'>
+    	<form class='form-inline' action="withinTransfer.php" method="post">
+	<div class='row'>
+		<div class='col-2'>
+		<label>From</label>
+		<select class='form-control' name='account1'>
+		<?php
+			$accounts = $client->getAccounts();
+			for ($i=0; $i<count($accounts); $i++){
+				echo "<option>{$accounts[$i]->getID()}";
+				echo "</option>";	
+			}
+		?>
+		</select>
+		</div>
+		<div class='col-2'>
+		<label>To</label>
+		<select class='form-control' name='account2'>
+		<?php
+			$accounts = $client->getAccounts();
+			for ($i=0; $i<count($accounts); $i++){
+				echo "<option>{$accounts[$i]->getID()}";
+				echo "</option>";	
+			}
+		?>
+		</select>
+		</div>
+		<div class='col-3'>
+		<label>Amount</label>
+		<input type='text' name='amount' placeholder='XXX.XX$'>
+		</div>
+	</div>
+	<div class='row'>
+		<button type='submit' class='btn btn-primary'>Move that dough</button>
+	</div>
+    	</form>
+	</div>
+	</div>
+
+	<hr>
+	<div class='container'>
+	<h2>Bills</h2>
+		<h3>View Bills</h3>
+		  <table class="table">
+		    <thead class='thead-dark'>
+		      <tr>
+		        <th scope="col">Bill ID</th>
+		        <th scope="col">From</th>
+		        <th scope="col">To</th>
+		        <th scope="col">Amount</th>
+		        <th scope="col">Recurring</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+			<?php
+				// For all accounts, search if bills tied to it
+				$accounts = $client->getAccounts();
+		
+				for ($i=0; $i<count($accounts); $i++){
+					// Search for bills
+					$query = "SELECT * FROM Bills WHERE account1_id = {$accounts[$i]->getID()}";
+					if($result = $dbc->query($query)){
+						while($row = $result->fetch_assoc()){
+							echo "<tr>";
+							echo "<th scope='row'>{$row['bill_id']}</th>";
+							echo "<td>{$row['account1_id']}</td>";
+							echo "<td>{$row['account2_id']}</td>";
+							echo "<td>{$row['amount']}$</td>";
+							echo "<td>";
+							if($row['recurring']=='1') echo "Yes";
+							else echo "No";
+							echo "</td></tr>";	
+						}
+					}	
+				}
+			?>
+		   </tbody>
+		</table>
+		
+	<h3>Setup Bills</h3>
+
+	</div>
+	
+	<hr>
 	<!-- Need to list all client accounts -->
 
             <div class="container">
@@ -116,6 +241,7 @@ if (isset($_SESSION['user_id'])){
         <script src="js/bootstrap-typeahead.js"></script>
 	-->
 
+	<?php mysqli_close($dbc);?>
         </body>
 
     </html>
