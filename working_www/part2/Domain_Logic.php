@@ -23,11 +23,8 @@ function calculateBranchProfits($BranchID)
 }
 
 //execute transfers
-function transferTo($account1ID, $account2ID, $amount)
-{
-
-    if(!doesAccountExists($account1ID) || !doesAccountExists($account2ID))
-    {
+function transferTo($account1ID, $account2ID, $amount){
+    if(!doesAccountExists($account1ID) || !doesAccountExists($account2ID)) {
         echo "One of the accounts do not exists";
     }
 
@@ -95,8 +92,7 @@ function transferAccountUpdate($conn, \BankingApp\Accounts $account1 , \BankingA
  * @param $accountID
  * @return \BankingApp\Accounts|null
  */
-function generateInstancedAccountByID($conn, $accountID)
-{
+function generateInstancedAccountByID($conn, $accountID){
 
     $chargePlanAtt = generateChargePlanArrays($conn);
 
@@ -105,18 +101,16 @@ function generateInstancedAccountByID($conn, $accountID)
     $drawLimits = $chargePlanAtt[2];
     $chargeVals = $chargePlanAtt[3];
 
-    $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
+    $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
     $result = $conn->query($sql);
     $optionIndex = 0;
     $Account = null;
-
-    while ($row = mysqli_fetch_row($result)) {
-
-        for($i = 0; $i < count($chargePlanIDs) ; $i++ )
-        {
-            if($row[3] == $chargePlanIDs[$i])
-            {
+	
+    if ($row = mysqli_fetch_row($result)) {
+        for($i = 0; $i < count($chargePlanIDs) ; $i++ ) {
+            if($row[3] == $chargePlanIDs[$i]) {
                 $optionIndex = $i;
+		break;
             }
         }
         $Account = new \BankingApp\Accounts($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$drawLimits[$optionIndex],$chargeVals[$optionIndex]);
@@ -176,7 +170,7 @@ function generateChargePlanArrays($conn)
     $drawLimitsArray = array();
     $chargeValsArray = array();
 
-    $sql = "SELECT * FROM chargeplan";
+    $sql = "SELECT * FROM ChargePlan";
     $result = $conn->query($sql);
     $i =0;
 

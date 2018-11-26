@@ -60,7 +60,7 @@ class Branch
 
     public function generateEmployeeIDList($conn)
     {
-        $sql = "SELECT * FROM employee WHERE branch_id = '$this->ID'";
+        $sql = "SELECT * FROM Employee WHERE branch_id = '$this->ID'";
         $result = $conn->query($sql);
 
         $EmployeeList = array();
@@ -98,7 +98,7 @@ class Branch
         $accListIndex = 0;
         for($i = 0; $i < count($clientList); $i++)
         {
-            $sql = "SELECT * FROM account WHERE client_id = '$clientList[$i]'";
+            $sql = "SELECT * FROM Account WHERE client_id = '$clientList[$i]'";
             $result = $conn->query($sql);
 
             while ($row = mysqli_fetch_row($result)) {
@@ -307,10 +307,4 @@ class Branch
     {
         $this->AccountIDList = $AccountIDList;
     }
-
-
-
-
-
-
 }

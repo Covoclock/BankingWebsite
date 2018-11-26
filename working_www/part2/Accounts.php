@@ -8,8 +8,7 @@
 
 require dirname(__FILE__)."/../credentialCheck.php";
 
-class Accounts
-{
+class Accounts{
     private $ID;
     private $clientID;
     private $accountType;

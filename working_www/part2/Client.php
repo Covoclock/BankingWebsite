@@ -11,7 +11,7 @@
 require dirname(__FILE__)."/../credentialCheck.php";
 require "Accounts.php";
 
-echo $__DIR__;
+//echo $__DIR__;
 
 /* Client Class */
 class Client{
