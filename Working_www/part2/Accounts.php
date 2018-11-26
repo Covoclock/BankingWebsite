@@ -5,11 +5,11 @@
  * Date: 11/24/2018
  * Time: 4:18 PM
  */
+//require dirname(__FILE__)."/../credentialCheck.php";
+include "..\AdminSearch\DataGateway.php";
 
-namespace BankingApp;
-require_once dirname(__FILE__)."/../credentialCheck.php";
-
-class Accounts{
+class Accounts
+{
     private $ID;
     private $clientID;
     private $accountType;
@@ -18,12 +18,10 @@ class Accounts{
     private $credit_limit;
     private $interests;
     private $level;
-    private $transactionMade;
-
+    private $transactionLeft;
     //chargePlan related Variables are stored here to ease process
     private $TransactionLimit;
     private $chargePrice;
-
     /**
      * Accounts constructor.
      * @param $ID
@@ -38,7 +36,7 @@ class Accounts{
      * @param $TransactionCost
      * @param $chargePrice
      */
-    public function __construct($ID, $clientID, $accountType, $chargePlan_ID, $balance, $credit_limit, $interests, $level, $transactionMade, $TransactionCost, $chargePrice)
+    public function __construct($ID, $clientID, $accountType, $chargePlan_ID, $balance, $credit_limit, $interests, $level, $transactionLeft, $TransactionCost, $chargePrice)
     {
         $this->ID = $ID;
         $this->clientID = $clientID;
@@ -48,9 +46,9 @@ class Accounts{
         $this->credit_limit = $credit_limit;
         $this->interests = $interests;
         $this->level = $level;
-	// To change (shoudl be transactionsLeft) and 
-	// add maxTransaction in ChargePlan to replace transactionLimit
-        $this->transactionMade = $transactionMade;
+        // To change (shoudl be transactionsLeft) and
+        // add maxTransaction in ChargePlan to replace transactionLimit
+        $this->transactionLeft = $transactionLeft;
         $this->TransactionLimit = $TransactionCost;
         $this->chargePrice = $chargePrice;
     }
@@ -58,68 +56,67 @@ class Accounts{
     /* Generates object from account_id
      * @param id Account_id
      */
-    public static function accountFromID($dbc,$id){
-	   $query = "SELECT * FROM Account WHERE account_id = $id";
-	   $result = $dbc->query($query);
-	   if ($row =  $result->fetch_assoc()){
-		   $clientID = $row['client_id'];
-		   $accountType = $row['account_type'];
-		   $chargePlan_id= $row['chargePlan_id'];
-		   $balance = $row['balance'];
-		   $credit_limit = $row['credit_limit'];
-		   $interest_rate = $row['interest_rate'];
-		   $lvl = $row['lvl'];
-		   $transactionLeft = $row['transactionLeft'];
-
-		   $instance = new self($id, $clientID, $accountType, $chargePlan_id, $balance, $credit_limit, $interest_rate, $lvl, $transactionLeft, 0, 0);
-		   return $instance;
-	   }
+    public static function accountFromID($id){
+        global $dbc;
+        $query = "SELECT * FROM Account WHERE account_id = $id";
+        $result = $dbc->query($query);
+        if ($row =  $result->fetch_assoc()){
+            $clientID = $row['client_id'];
+            $accountType = $row['account_type'];
+            $chargePlan_id= $row['chargePlan_id'];
+            $balance = $row['balance'];
+            $credit_limit = $row['credit_limit'];
+            $interest_rate = $row['interest_rate'];
+            $lvl = $row['lvl'];
+            $transactionLeft = $row['transactionLeft'];
+            $instance = new self($id, $clientID, $accountType, $chargePlan_id, $balance, $credit_limit, $interest_rate, $lvl, $transactionLeft, 0, 0);
+            return $instance;
+        }
     }
-
     /*
      * ------------CUSTOM METHODS -------------------
      */
-
-	public function findBranchID($dbc){
-		$query = "select * from Client where client_id = {$this->ID}";
-		$result = $dbc->query($query);
-		if ($row = $results->fetch_assoc()){
-			return row['branch_id'];
-		}
-	}
-
     public function UpdateByID($dbc) {
-        $sql = "UPDATE Account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
+        $sql = "UPDATE account SET client_id='$this->clientID', account_type = '$this->accountType', chargePlan_id = '$this->chargePlan_ID',
         balance = '$this->balance', credit_limit = '$this->credit_limit', interest_rate = '$this->interests', lvl = '$this->level',
-        transactionLeft ='$this->transactionMade' WHERE account_id=$this->ID";
-
+        transactionLeft ='$this->transactionLeft' WHERE account_id=$this->ID";
         if ($dbc->query($sql) === TRUE) {
             echo "Record updated successfully";
         } else {
             echo "Error updating record: " . $dbc->error;
         }
-
     }
 
-
-
-    public function __toString()
+    public function findBranchID($dbc)
     {
-	$s = "";
-        $s .=  "<br>";
-        $s .=  "<strong>Account ID</strong>: $this->ID <br>";
-        $s .=  "<strong>Account Type</strong>: $this->accountType <br>";
-        $s .=  "<strong>Balance</strong>: $this->balance <br>";
-        $s .=  "<strong>Credit Limit</strong>: $this->credit_limit <br>";
-        $s .=  "<strong>Interests</strong>: $this->interests <br>";
-        $s .=  "<strong>Level</strong>: $this->level <br>";
-	return $s;
+        $branchID = 0;
+        $sql = "SELECT * FROM client WHERE id='$this->clientID'";
+        $result = $dbc->query($sql);
+        if($row = mysqli_fetch_row($result))
+        {
+            $branchID = row[11];
+        }
+        return $branchID;
     }
 
+    public function toString()
+    {
+        echo "</<br>";
+        echo "ID: $this->ID </br>";
+        echo "clientID: $this->clientID </br>";
+        echo "accountType: $this->accountType </br>";
+        echo "chargePlan_ID: $this->chargePlan_ID </br>";
+        echo "balance: $this->balance </br>";
+        echo "credit_limit: $this->credit_limit </br>";
+        echo "interests: $this->interests </br>";
+        echo "level: $this->level </br>";
+        echo "transactionMade: $this->transactionLeft </br>";
+        echo "TransactionLimit: $this->TransactionLimit </br>";
+        echo "chargePrice: $this->chargePrice </br>";
+    }
     /*
      *  -----------GETTERS AND SETTERS --------------
      */
-
     /**
      * @return mixed
      */
@@ -127,7 +124,6 @@ class Accounts{
     {
         return $this->ID;
     }
-
     /**
      * @param mixed $ID
      */
@@ -135,7 +131,6 @@ class Accounts{
     {
         $this->ID = $ID;
     }
-
     /**
      * @return mixed
      */
@@ -143,7 +138,6 @@ class Accounts{
     {
         return $this->clientID;
     }
-
     /**
      * @param mixed $clientID
      */
@@ -151,7 +145,6 @@ class Accounts{
     {
         $this->clientID = $clientID;
     }
-
     /**
      * @return mixed
      */
@@ -159,7 +152,6 @@ class Accounts{
     {
         return $this->accountType;
     }
-
     /**
      * @param mixed $accountType
      */
@@ -167,7 +159,6 @@ class Accounts{
     {
         $this->accountType = $accountType;
     }
-
     /**
      * @return mixed
      */
@@ -175,7 +166,6 @@ class Accounts{
     {
         return $this->balance;
     }
-
     /**
      * @param mixed $balance
      */
@@ -183,7 +173,6 @@ class Accounts{
     {
         $this->balance = $balance;
     }
-
     /**
      * @return mixed
      */
@@ -191,7 +180,6 @@ class Accounts{
     {
         return $this->credit_limit;
     }
-
     /**
      * @param mixed $credit_limit
      */
@@ -199,7 +187,6 @@ class Accounts{
     {
         $this->credit_limit = $credit_limit;
     }
-
     /**
      * @return mixed
      */
@@ -207,7 +194,6 @@ class Accounts{
     {
         return $this->interests;
     }
-
     /**
      * @param mixed $interests
      */
@@ -215,7 +201,6 @@ class Accounts{
     {
         $this->interests = $interests;
     }
-
     /**
      * @return mixed
      */
@@ -223,7 +208,6 @@ class Accounts{
     {
         return $this->level;
     }
-
     /**
      * @param mixed $level
      */
@@ -231,23 +215,20 @@ class Accounts{
     {
         $this->level = $level;
     }
-
     /**
      * @return mixed
      */
-    public function getTransactionMade()
+    public function getTransactionLeft()
     {
-        return $this->transactionMade;
+        return $this->transactionLeft;
     }
-
     /**
-     * @param mixed $transactionMade
+     * @param mixed $transactionLeft
      */
-    public function setTransactionMade($transactionMade)
+    public function setTransactionLeft($transactionLeft)
     {
-        $this->transactionMade = $transactionMade;
+        $this->transactionLeft = $transactionLeft;
     }
-
     /**
      * @return mixed
      */
@@ -255,7 +236,6 @@ class Accounts{
     {
         return $this->chargePlan_ID;
     }
-
     /**
      * @param mixed $chargePlan_ID
      */
@@ -263,7 +243,6 @@ class Accounts{
     {
         $this->chargePlan_ID = $chargePlan_ID;
     }
-
     /**
      * @return mixed
      */
@@ -271,7 +250,6 @@ class Accounts{
     {
         return $this->TransactionLimit;
     }
-
     /**
      * @param mixed $TransactionLimit
      */
@@ -279,7 +257,6 @@ class Accounts{
     {
         $this->TransactionLimit = $TransactionLimit;
     }
-
     /**
      * @return mixed
      */
@@ -287,7 +264,6 @@ class Accounts{
     {
         return $this->chargePrice;
     }
-
     /**
      * @param mixed $chargePrice
      */
@@ -295,5 +271,4 @@ class Accounts{
     {
         $this->chargePrice = $chargePrice;
     }
-
 }
