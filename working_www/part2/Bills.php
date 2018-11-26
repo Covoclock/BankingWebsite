@@ -58,14 +58,14 @@ class Bill{
 			transferAccountUpdate($dbc, $account1, $account2, $amount);
 			createTransaction($dbc, $account1, $account2, $amount);
 			// Check if recurring bill
-			if ($recurring != '1'){
+			if ($bill->getRecurring() != '1'){
 				self::deleteBill($dbc, $bill->getID());
 			}
 			return true;
 		}	
 		else{
 			// Can't pay, duplicate bill
-			$this->duplicateBill($dbc);
+			$bill->duplicateBill($dbc);
 		}
 		return false;
 	}
