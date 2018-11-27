@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS Services (
 CREATE TABLE IF NOT EXISTS ChargePlan (
         chargePlan_id   int not null,
         option_name     varchar(255),
-        draw_limit      float,
-        charge_value    float, 
+        draw_limit      float, -- max transactions
+        charge_value    float, -- periodic fees
         primary key(chargePlan_id)
 );
 
