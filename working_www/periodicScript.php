@@ -21,7 +21,7 @@ function loopBills($dbc){
 
 			$bill = new Bill($bill_id, $amount,$account1_id, $account2_id, $recurring);
 			if(isset($account1_id) && isset($account2_id) && isset($amount)){
-				$status = singleBill($dbc, $bill);
+				$status = Bill::singleBill($dbc, $bill);
 			}
 		}
 	}

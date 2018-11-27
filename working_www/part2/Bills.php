@@ -62,8 +62,7 @@ class Bill{
 				self::deleteBill($dbc, $bill->getID());
 			}
 			return true;
-		}	
-		else{
+		}else{
 			// Can't pay, duplicate bill
 			$bill->duplicateBill($dbc);
 		}
