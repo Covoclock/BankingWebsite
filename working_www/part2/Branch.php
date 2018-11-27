@@ -6,8 +6,7 @@
  * Time: 1:13 AM
  */
 
-namespace BankingApp;
-include "Accounts.php";
+include "Client.php";
 
 class Branch
 {
@@ -20,6 +19,8 @@ class Branch
     private $opening_date;
     private $manager_id;
     private $isHeadOffice;
+    private $BranchClient;
+    private $BranchAccount;
 
     private $EmployeeIDList;
     private $ClientIDList;
@@ -41,26 +42,69 @@ class Branch
      * @param $manager_id
      * @param $isHeadOffice
      */
-    public function __construct($ID, $province, $city, $street, $phone, $fax, $opening_date, $manager_id, $isHeadOffice)
+
+    public function __construct($conn, $ID)
     {
-        $this->ID = $ID;
-        $this->province = $province;
-        $this->city = $city;
-        $this->street = $street;
-        $this->phone = $phone;
-        $this->fax = $fax;
-        $this->opening_date = $opening_date;
-        $this->manager_id = $manager_id;
-        $this->isHeadOffice = $isHeadOffice;
+        $sql = "SELECT * FROM branch WHERE branch_id='$ID'";
+        $result = $conn->query($sql);
+        if ($row = mysqli_fetch_row($result)) {
+            $this->ID = $ID;
+            $this->province = $row[1];
+            $this->city = $row[2];
+            $this->street = $row[3];
+            $this->phone = $row[4];
+            $this->fax = $row[5];
+            $this->opening_date = $row[6];
+            $this->manager_id = $row[7];
+            $this->isHeadOffice = $row[8];
+            $this->instantiateOwnBankAcc($conn);
+        }
+        else{
+            echo"No Valid branch";
+        }
     }
 
     /*
      * ------------CUSTOM METHODS -------------------
      */
 
+    function calculateBranchProfits()
+    {
+
+    }
+
+
+
+    public function instantiateOwnClient($conn)
+    {
+        $sql = "SELECT * FROM client WHERE firstname = '$this->ID' and lastName = 'Branch'";
+        $result = $conn->query($sql);
+        $clientID = 0;
+        if ($row = mysqli_fetch_row($result)) {
+            $clientID = $row[0];
+        }
+        $ClientOBJ = new Client($conn, $clientID); //TODO SEE THE OTHER TODO IN CLIENT THEY ARE LINKED, MIGHT WANT TO REMOVE $CONN IN HERE ON MERGE
+        $this->BranchClient = $ClientOBJ;
+    }
+
+    Public function  instantiateOwnBankAcc($conn)
+    {
+        $this->instantiateOwnClient($conn);
+        $clientInstance = $this->BranchClient;
+        $clientID = $clientInstance->getID();
+        $sql = "SELECT * FROM account WHERE client_id = '$clientID'";
+        $result = $conn->query($sql);
+        $ACCID = 0;
+        if ($row = mysqli_fetch_row($result)) {
+            $ACCID = $row[0];
+        }
+        $tempbranchACC = generateInstancedAccountByID($conn,$ACCID);
+        $this->BranchAccount = $tempbranchACC;
+    }
+
     public function generateEmployeeIDList($conn)
     {
-        $sql = "SELECT * FROM Employee WHERE branch_id = '$this->ID'";
+        $sql = "SELECT * FROM employee WHERE branch_id = '$this->ID'";
         $result = $conn->query($sql);
 
         $EmployeeList = array();
@@ -76,7 +120,7 @@ class Branch
 
     public function generateClientIDList($conn)
     {
-        $sql = "SELECT * FROM Client WHERE branch_id = '$this->ID'";
+        $sql = "SELECT * FROM Client WHERE branch_id = '$this->ID' and lastname <> ";
         $result = $conn->query($sql);
 
         $ClientList = array();
@@ -90,7 +134,6 @@ class Branch
         $this->setClientIDList($ClientList);
     }
 
-
     public function generateAccountIDList($conn)
     {
         $clientList = $this->getClientIDList($conn);
@@ -98,7 +141,7 @@ class Branch
         $accListIndex = 0;
         for($i = 0; $i < count($clientList); $i++)
         {
-            $sql = "SELECT * FROM Account WHERE client_id = '$clientList[$i]'";
+            $sql = "SELECT * FROM account WHERE client_id = '$clientList[$i]' and type <> 'Branch'";
             $result = $conn->query($sql);
 
             while ($row = mysqli_fetch_row($result)) {
@@ -307,4 +350,58 @@ class Branch
     {
         $this->AccountIDList = $AccountIDList;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBranchClient()
+    {
+        return $this->BranchClient;
+    }
+
+    /**
+     * @param mixed $BranchClient
+     */
+    public function setBranchClient($BranchClient)
+    {
+        $this->BranchClient = $BranchClient;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBranchAccount()
+    {
+        return $this->BranchAccount;
+    }
+
+    /**
+     * @param mixed $BranchAccount
+     */
+    public function setBranchAccount($BranchAccount)
+    {
+        $this->BranchAccount = $BranchAccount;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAccountOBJList()
+    {
+        return $this->AccountOBJList;
+    }
+
+    /**
+     * @param mixed $AccountOBJList
+     */
+    public function setAccountOBJList($AccountOBJList)
+    {
+        $this->AccountOBJList = $AccountOBJList;
+    }
+
+
+
+
+
+
 }

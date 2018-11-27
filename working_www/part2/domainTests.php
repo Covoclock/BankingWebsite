@@ -8,12 +8,11 @@
 
 include "Domain_Logic.php";
 
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Branch Catalog Search</title>
+    <title>TEST</title>
 </head>
 
 <body>
@@ -53,10 +52,32 @@ $testACC->UpdateByID($conn);
 echo "</br>";
 $testACC->toString();
 echo "</br>";
-$testAcc3 = generateInstancedAccountByID($conn, 1);
+$testAcc3 = generateInstancedAccountByID($conn, 3);
 $testAcc3->toString();
 $testACC->setChargePlanID(0);
 $testACC->UpdateByID($conn);
+echo "</br>";
+
+
+
+
+echo "<h3>Second round of tests</h3>";
+echo "</br>";
+$testAccBranchID = $testACC->findBranchID($conn);
+echo "</br>";
+echo "$testAccBranchID";
+$branchInstance = new Branch($conn, $testAccBranchID);
+echo "</br>";
+$branchInstance->instantiateOwnBankAcc($conn);
+echo "</br>";
+transferto($conn, $testACC->getID(), $testAcc3->getID(), 10);
+echo "</br>";
+$branchACC = $branchInstance->getBranchAccount();
+$testACC->toString();
+echo "</br>";
+$testAcc3->toString();
+echo "</br>";
+$branchACC->toString();
 $conn->close();
 ?>
 
