@@ -1,16 +1,30 @@
 <?php
 session_start();
-require "credentialCheck.php";
-require "permissionCheck.php";
-include "part2/Client.php";
-verifySession("client");
+include_once "credentialCheck.php";
+include_once "permissionCheck.php";
+verifySession($dbc, "client");
+include_once "part2/Client.php";
+include_once "part2/Domain_Logic.php";
+//var_dump($dbc);
+include "navbar.php";
 
-if (isset($_SESSION['user_id'])){
+include_once "billCreationConstant.php"; // Defines the number of max bills to be created at the same time
+
+if(isset($_SESSION['user_id'])){
 	$client =  new Client($dbc, $_SESSION['user_id']);
+	$accounts = generateAccountListByClientID($dbc, $client->getID());
 }else{
 	//client id not set in session properly
 	header("Location: index.php");
 }
+
+// Creates all the inputs for the bills
+function loopCreationBills(){
+	for ($i=1; $i<=MAX_BILLS; $i++){
+    		echo "<p>Recepient Account ID: <input type='text' name='recipientAccount_$i'> Bill Amount: <input type='number' step='0.01' min='0' name='billAmount_$i'></p>";
+	}
+}
+
 ?>
 
  <!DOCTYPE html>
@@ -26,6 +40,7 @@ if (isset($_SESSION['user_id'])){
     </head>
 
     <body>
+		<?php echo navbar();?>
 
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -71,9 +86,6 @@ if (isset($_SESSION['user_id'])){
           <script src="js/html5shiv.js"></script>
         <![endif]-->
 
-        </head>
-
-        <body>
 	<h1 class='text-center'> Client Hub </h1>
 	<div class='container'>
 	<?php echo "<h2>Client Info</h2><p> {$client}</p>"; ?>
@@ -96,7 +108,6 @@ if (isset($_SESSION['user_id'])){
 		  </thead>
 		  <tbody>
 		<?php
-			$accounts = $client->getAccounts();
 		
 			for ($i=0; $i<count($accounts); $i++){
 				echo "<tr>";
@@ -124,7 +135,6 @@ if (isset($_SESSION['user_id'])){
 		<label>From</label>
 		<select class='form-control' name='account1'>
 		<?php
-			$accounts = $client->getAccounts();
 			for ($i=0; $i<count($accounts); $i++){
 				echo "<option>{$accounts[$i]->getID()}";
 				echo "</option>";	
@@ -136,7 +146,6 @@ if (isset($_SESSION['user_id'])){
 		<label>To</label>
 		<select class='form-control' name='account2'>
 		<?php
-			$accounts = $client->getAccounts();
 			for ($i=0; $i<count($accounts); $i++){
 				echo "<option>{$accounts[$i]->getID()}";
 				echo "</option>";	
@@ -146,7 +155,7 @@ if (isset($_SESSION['user_id'])){
 		</div>
 		<div class='col-3'>
 		<label>Amount</label>
-		<input type='text' name='amount' placeholder='XXX.XX$'>
+		<input type='number' step='0.01' min='0' name='amount' placeholder='XXX.XX$'>
 		</div>
 	</div>
 	<div class='row'>
@@ -173,8 +182,8 @@ if (isset($_SESSION['user_id'])){
 		    <tbody>
 			<?php
 				// For all accounts, search if bills tied to it
-				$accounts = $client->getAccounts();
 		
+				$accounts = generateAccountListByClientID($dbc, $client->getID());
 				for ($i=0; $i<count($accounts); $i++){
 					// Search for bills
 					$query = "SELECT * FROM Bills WHERE account1_id = {$accounts[$i]->getID()}";
@@ -197,29 +206,15 @@ if (isset($_SESSION['user_id'])){
 		</table>
 		
 	<h3>Setup Bills</h3>
-
+    		<form action="billCreation.php" method="post">
+    		<?php loopCreationBills(); ?>
+    		<p><input type="checkbox" name="recurringBills" value="recurringBills">Bill(s) Recurring</p>
+    		<button type="submit" class='btn btn-primary' >Submit New Bills</button>
+    		</form>
 	</div>
 	
 	<hr>
 	<!-- Need to list all client accounts -->
-
-            <div class="container">
-                <!-- Testing part -->
-                <a href="branch-search.html">Branch Search</a>
-                <br>
-                <a href="accountPage.php">Account Page</a>
-                <br>
-                <a href="account_results.php">Account Results</a>
-                <br>
-                <a href="Admin/account_admin.php">Account Admin</a>
-                <br>
-                <a href="Admin/admin_hub.php">Admin Hub</a>
-                <br>
-                <a href="Specific_Account_Page.php">Specific Account</a>
-                <br>
-
-            </div>
-            <!-- /container -->
 
             <!-- Le javascript
         ================================================== -->
