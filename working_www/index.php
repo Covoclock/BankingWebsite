@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "navbar.php";
 
 ?>
 
@@ -61,9 +62,8 @@
           <script src="js/html5shiv.js"></script>
         <![endif]-->
 
-        </head>
 
-        <body>
+		<?php echo navbar();?>
 
             <div class="container">
 

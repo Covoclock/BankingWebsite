@@ -1,10 +1,8 @@
 <?php
 // Starting Session
 session_start();
-require "credentialCheck.php";
 
-function searchUser($uname, $type){
-	global $dbc;
+function searchUser($dbc, $uname, $type){
 	
 	if ($type == 'client'){
 		$query = "SELECT count(1) FROM Client WHERE client_id =". $uname.";" ;
@@ -23,11 +21,11 @@ function searchUser($uname, $type){
 	}
 }
 
-function verifySession($desired_type){
+function verifySession($dbc, $desired_type){
 	// Verifies that session user_id and type are set
 	if(isset($_SESSION['user_id']) && isset($_SESSION['type']) && $_SESSION['type'] == $desired_type){
 		// Passes them to searchUser()
-		searchUser($_SESSION['user_id'], $_SESSION['type']);
+		searchUser($dbc, $_SESSION['user_id'], $_SESSION['type']);
 	} else{
 		header("Location: /index.php");
 	}

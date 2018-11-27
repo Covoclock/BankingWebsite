@@ -2,10 +2,11 @@
 session_start();
 // Imports and executes the login to the SQL server
 // allows you to use the database $dbc variable
-require_once "credentialCheck.php";
-require_once "permissionCheck.php";
-require_once "part2/Accounts.php";
-verifySession("client");
+include_once "credentialCheck.php";
+include_once "permissionCheck.php";
+include_once "part2/Accounts.php";
+include "navbar.php";
+verifySession($dbc, "client");
 
 $account_id = $_POST['accountID'];
 $account_obj = \BankingApp\Accounts::accountFromID($dbc, $account_id);
@@ -47,6 +48,7 @@ $resultBill=$dbc->query($retrieveBill);
 
 <body>
 
+		<?php echo navbar();?>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <style type="text/css">

@@ -5,8 +5,8 @@
  * Date: 11/24/2018
  * Time: 4:18 PM
  */
-//require dirname(__FILE__)."/../credentialCheck.php";
-include "..\AdminSearch\DataGateway.php";
+require dirname(__FILE__)."/../credentialCheck.php";
+//include "..\AdminSearch\DataGateway.php";
 
 class Accounts
 {
@@ -57,7 +57,6 @@ class Accounts
      * @param id Account_id
      */
     public static function accountFromID($dbc, $id){
-        //global $dbc; //TODO UNCOMMENT FOR MERGE OR DONT
         $query = "SELECT * FROM account WHERE account_id = $id";
         $result = $dbc->query($query);
         if ($row =  $result->fetch_assoc()){
@@ -119,158 +118,114 @@ class Accounts
     /*
      *  -----------GETTERS AND SETTERS --------------
      */
+
     /**
      * @return mixed
      */
-    public function getID()
-    {
-        return $this->ID;
-    }
+    public function getID() { return $this->ID; }
+
     /**
      * @param mixed $ID
      */
-    public function setID($ID)
-    {
-        $this->ID = $ID;
-    }
+    public function setID($ID) { $this->ID = $ID; }
+
     /**
      * @return mixed
      */
-    public function getClientID()
-    {
-        return $this->clientID;
-    }
+    public function getClientID() { return $this->clientID; }
+
     /**
      * @param mixed $clientID
      */
-    public function setClientID($clientID)
-    {
-        $this->clientID = $clientID;
-    }
+    public function setClientID($clientID) { $this->clientID = $clientID; }
+
     /**
      * @return mixed
      */
-    public function getAccountType()
-    {
-        return $this->accountType;
-    }
+    public function getAccountType() { return $this->accountType; }
+
     /**
      * @param mixed $accountType
      */
-    public function setAccountType($accountType)
-    {
-        $this->accountType = $accountType;
-    }
+    public function setAccountType($accountType) { $this->accountType = $accountType; }
+
     /**
      * @return mixed
      */
-    public function getBalance()
-    {
-        return $this->balance;
-    }
+    public function getBalance() { return $this->balance; }
+
     /**
      * @param mixed $balance
      */
-    public function setBalance($balance)
-    {
-        $this->balance = $balance;
-    }
+    public function setBalance($balance) { $this->balance = $balance; }
+
     /**
      * @return mixed
      */
-    public function getCreditLimit()
-    {
-        return $this->credit_limit;
-    }
+    public function getCreditLimit() { return $this->credit_limit; }
+
     /**
      * @param mixed $credit_limit
      */
-    public function setCreditLimit($credit_limit)
-    {
-        $this->credit_limit = $credit_limit;
-    }
+    public function setCreditLimit($credit_limit) { $this->credit_limit = $credit_limit; }
+
     /**
      * @return mixed
      */
-    public function getInterests()
-    {
-        return $this->interests;
-    }
+    public function getInterests() { return $this->interests; }
+	
     /**
      * @param mixed $interests
      */
-    public function setInterests($interests)
-    {
-        $this->interests = $interests;
-    }
+    public function setInterests($interests) { $this->interests = $interests; }
+
     /**
      * @return mixed
      */
-    public function getLevel()
-    {
-        return $this->level;
-    }
+    public function getLevel() { return $this->level; }
+
     /**
      * @param mixed $level
      */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-    }
+    public function setLevel($level) { $this->level = $level; }
+
     /**
      * @return mixed
      */
-    public function getTransactionLeft()
-    {
-        return $this->transactionLeft;
-    }
+    public function getTransactionLeft() { return $this->transactionLeft; }
+
     /**
      * @param mixed $transactionLeft
      */
-    public function setTransactionLeft($transactionLeft)
-    {
-        $this->transactionLeft = $transactionLeft;
-    }
+    public function setTransactionLeft($transactionLeft) { $this->transactionLeft = $transactionLeft; }
+
     /**
      * @return mixed
      */
-    public function getChargePlanID()
-    {
-        return $this->chargePlan_ID;
-    }
+    public function getChargePlanID() { return $this->chargePlan_ID; }
+
     /**
      * @param mixed $chargePlan_ID
      */
-    public function setChargePlanID($chargePlan_ID)
-    {
-        $this->chargePlan_ID = $chargePlan_ID;
-    }
+    public function setChargePlanID($chargePlan_ID) { $this->chargePlan_ID = $chargePlan_ID; }
+
     /**
      * @return mixed
      */
-    public function getTransactionLimit()
-    {
-        return $this->TransactionLimit;
-    }
+    public function getTransactionLimit() { return $this->TransactionLimit; }
+
     /**
      * @param mixed $TransactionLimit
      */
-    public function setTransactionLimit($TransactionLimit)
-    {
-        $this->TransactionLimit = $TransactionLimit;
-    }
+    public function setTransactionLimit($TransactionLimit) { $this->TransactionLimit = $TransactionLimit; }
+
     /**
      * @return mixed
      */
-    public function getChargePrice()
-    {
-        return $this->chargePrice;
-    }
+    public function getChargePrice() { return $this->chargePrice; }
+
     /**
      * @param mixed $chargePrice
      */
-    public function setChargePrice($chargePrice)
-    {
-        $this->chargePrice = $chargePrice;
-    }
+    public function setChargePrice($chargePrice) { $this->chargePrice = $chargePrice; }
 }

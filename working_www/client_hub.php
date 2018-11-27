@@ -4,10 +4,9 @@ require "credentialCheck.php";
 require "permissionCheck.php";
 include "part2/Client.php";
 verifySession("client");
-//var_dump($dbc);
 
 if (isset($_SESSION['user_id'])){
-	$client =  new Client($_SESSION['user_id']);
+	$client =  new Client($dbc, $_SESSION['user_id']);
 }else{
 	//client id not set in session properly
 	header("Location: index.php");
