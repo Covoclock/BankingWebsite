@@ -45,7 +45,7 @@ class Branch
 
     public function __construct($conn, $ID)
     {
-        $sql = "SELECT * FROM branch WHERE branch_id='$ID'";
+        $sql = "SELECT * FROM Branch WHERE branch_id='$ID'";
         $result = $conn->query($sql);
         if ($row = mysqli_fetch_row($result)) {
             $this->ID = $ID;
@@ -77,7 +77,7 @@ class Branch
 
     public function instantiateOwnClient($conn)
     {
-        $sql = "SELECT * FROM client WHERE firstname = '$this->ID' and lastName = 'Branch'";
+        $sql = "SELECT * FROM Client WHERE firstname = '$this->ID' and lastName = 'Branch'";
         $result = $conn->query($sql);
         $clientID = 0;
         if ($row = mysqli_fetch_row($result)) {
@@ -92,19 +92,19 @@ class Branch
         $this->instantiateOwnClient($conn);
         $clientInstance = $this->BranchClient;
         $clientID = $clientInstance->getID();
-        $sql = "SELECT * FROM account WHERE client_id = '$clientID'";
+        $sql = "SELECT * FROM Account WHERE client_id = '$clientID'";
         $result = $conn->query($sql);
         $ACCID = 0;
         if ($row = mysqli_fetch_row($result)) {
             $ACCID = $row[0];
         }
-        $tempbranchACC = generateInstancedAccountByID($conn,$ACCID);
+        $tempbranchACC = Accounts::generateInstancedAccountByID($conn,$ACCID);
         $this->BranchAccount = $tempbranchACC;
     }
 
     public function generateEmployeeIDList($conn)
     {
-        $sql = "SELECT * FROM employee WHERE branch_id = '$this->ID'";
+        $sql = "SELECT * FROM Employee WHERE branch_id = '$this->ID'";
         $result = $conn->query($sql);
 
         $EmployeeList = array();
@@ -120,7 +120,7 @@ class Branch
 
     public function generateClientIDList($conn)
     {
-        $sql = "SELECT * FROM Client WHERE branch_id = '$this->ID' and lastname <> ";
+        $sql = "SELECT * FROM Client WHERE branch_id = '$this->ID' and lastname <> 'Branch'";
         $result = $conn->query($sql);
 
         $ClientList = array();
@@ -141,7 +141,7 @@ class Branch
         $accListIndex = 0;
         for($i = 0; $i < count($clientList); $i++)
         {
-            $sql = "SELECT * FROM account WHERE client_id = '$clientList[$i]' and type <> 'Branch'";
+            $sql = "SELECT * FROM Account WHERE client_id = '$clientList[$i]' and type <> 'Branch'";
             $result = $conn->query($sql);
 
             while ($row = mysqli_fetch_row($result)) {
