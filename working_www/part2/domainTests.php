@@ -57,10 +57,6 @@ $testAcc3->toString();
 $testACC->setChargePlanID(0);
 $testACC->UpdateByID($conn);
 echo "</br>";
-
-
-
-
 echo "<h3>Second round of tests</h3>";
 echo "</br>";
 $testAccBranchID = $testACC->findBranchID($conn);
@@ -87,6 +83,20 @@ $PhoneACCfind = Accounts::findAccountByPhone($conn, '514-222-3456');
 echo "</br>";
 $PhoneACCfind->toString();
 echo "</br>";
+echo "<h3>Test round 3</h3>";
+echo "</br>";
+$branchInstance2 = new Branch($conn,5);
+$branchInstance2->displayAccountsOBJList();
+echo "</br>";
+$chargePlanREV = $branchInstance2->calculateRevenuesFromChargePlans();
+$interestREV = $branchInstance2->calculateRevenuesFromCredit();
+$transactionREV = $branchInstance2->calculateRevenuesFromTransactions();
+echo "</br>";
+echo "$chargePlanREV";
+echo "</br>";
+echo "$interestREV";
+echo "</br>";
+echo "$transactionREV";
 echo "</br>";
 $conn->close();
 ?>

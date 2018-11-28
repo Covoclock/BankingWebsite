@@ -26,8 +26,6 @@ class Branch
     private $ClientIDList;
     private $AccountIDList;
 
-
-    //TODO NEED A FUNCITON TO GENERATE THIS ONE, USING THE GENERATE ClientIDList + AccountIDList is prolly a good idea
     private $AccountOBJList;
 
     /**
@@ -58,6 +56,9 @@ class Branch
             $this->manager_id = $row[7];
             $this->isHeadOffice = $row[8];
             $this->instantiateOwnBankAcc($conn);
+            $this->generateClientIDList($conn);
+            $this->generateAccountIDList($conn);
+            $this->instantiateAccountObjList($conn);
         }
         else{
             echo"No Valid branch";
@@ -65,15 +66,59 @@ class Branch
     }
 
     /*
-     * ------------CUSTOM METHODS -------------------
+     * profit related methods
      */
 
-    function calculateBranchProfits()
+    function calculateRevenuesFromChargePlans()
     {
+        $revenue = 0;
+        for($i =0; $i<count($this->AccountOBJList) ;$i++)
+        {
+            $revenue += $this->AccountOBJList[$i]->getChargePrice();
+        }
 
+        return $revenue;
+    }
+
+    function calculateRevenuesFromTransactions()
+    {
+        $revenue = 0;
+        for($i =0; $i<count($this->AccountOBJList) ;$i++)
+        {
+            $transLeft = $this->AccountOBJList[$i]->getTransactionLeft();
+                if($transLeft < 0)
+                {
+                    $revenue +=  $transLeft*-2;
+                }
+        }
+        return $revenue;
+    }
+
+    function calculateRevenuesFromCredit()
+    {
+        $revenue = 0;
+        for($i =0; $i<count($this->AccountOBJList) ;$i++)
+        {
+            if($this->AccountOBJList[$i]->getAccountType() == 'credit')
+            {
+                $revenue +=  $this->AccountOBJList[$i]->getBalance() * $this->AccountOBJList[$i]->getInterests();
+            }
+        }
+        return $revenue;
     }
 
 
+    function calculateBranchProfits()
+    {
+        $totalRevenues = $this->calculateRevenuesFromChargePlans();
+        $totalRevenues += $this->calculateRevenuesFromTransactions();
+        $totalRevenues += $this->calculateRevenuesFromCredit();
+        return $totalRevenues;
+    }
+
+    /*
+     * ------------CUSTOM METHODS -------------------
+     */
 
     public function instantiateOwnClient($conn)
     {
@@ -141,7 +186,7 @@ class Branch
         $accListIndex = 0;
         for($i = 0; $i < count($clientList); $i++)
         {
-            $sql = "SELECT * FROM Account WHERE client_id = '$clientList[$i]' and type <> 'Branch'";
+            $sql = "SELECT * FROM Account WHERE client_id = '$clientList[$i]' and account_type <> 'Branch'";
             $result = $conn->query($sql);
 
             while ($row = mysqli_fetch_row($result)) {
@@ -153,6 +198,32 @@ class Branch
 
         $this->setAccountIDList($tempAccList);
     }
+
+    public function instantiateAccountObjList($conn)
+    {
+        $AccountIDList = $this->getAccountIDList();
+        for($i = 0; $i < count($AccountIDList) ;$i++)
+        {
+            $this->AccountOBJList[$i] = Accounts::generateInstancedAccountByID($conn,$AccountIDList[$i]);
+        }
+
+    }
+
+    /*
+     *
+     * ------------List Display for Accounts in Branch ----------
+     *
+     */
+
+    public function displayAccountsOBJList()
+    {
+        for($i = 0; $i < count($this->AccountOBJList) ;$i++)
+        {
+            echo"</br>";
+            $this->AccountOBJList[$i]->toString();
+        }
+    }
+
 
 
     /*
