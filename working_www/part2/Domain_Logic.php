@@ -29,7 +29,7 @@ function transferTo($dbc, $account1ID, $account2ID, $amount)
 
         if($instancedAcc2->getAccountType() == 'credit')
         {
-            echo "can't transfer to credit account </br>";
+            echo "can't transfer to foreign credit accounts </br>";
         }
 
         else if($instancedAcc1->getTransactionLeft() <= 0)
