@@ -13,21 +13,26 @@ include "Branch.php";
 //execute transfers
 function transferTo($dbc, $account1ID, $account2ID, $amount)
 {
-    if(!doesAccountExists($account1ID) || !doesAccountExists($account2ID))
+    if(!Accounts::doesAccountExists($account1ID) || !Accounts::doesAccountExists($account2ID))
     {
         echo "One of the accounts do not exists </br>";
     }
 
     else if ($account1ID == $account2ID)
     {
-        echo "cant transfer to same account </br>";
+        echo "can't transfer to same account </br>";
     }
 
     else {
-        $instancedAcc1 = generateInstancedAccountByID($dbc, $account1ID);
-        $instancedAcc2 = generateInstancedAccountByID($dbc, $account2ID);
+        $instancedAcc1 = Accounts::generateInstancedAccountByID($dbc, $account1ID);
+        $instancedAcc2 = Accounts::generateInstancedAccountByID($dbc, $account2ID);
 
-        if($instancedAcc1->getTransactionLeft() <= 0)
+        if($instancedAcc2->getAccountType() == 'credit')
+        {
+            echo "can't transfer to credit account </br>";
+        }
+
+        else if($instancedAcc1->getTransactionLeft() <= 0)
         {
             //2$ charges per transactions
             //TODO iT DOES NOT REMOVE A TRANSACTIONLEFT AT THIS POINT, DUNNO IF WE WANT TO CHANGE IT
@@ -109,138 +114,3 @@ function transferInstanciation($dbc, Accounts $account1 , Accounts $account2, $a
     }
 
 }
-
-/**
- * @param $conn
- * @param $accountID
- * @return Accounts|null
- */
-function generateInstancedAccountByID($conn, $accountID)
-{
-    $chargePlanAtt = generateChargePlanArrays($conn);
-    $chargePlanIDs = $chargePlanAtt[0];
-    $optionNames = $chargePlanAtt[1];
-    $drawLimits = $chargePlanAtt[2];
-    $chargeVals = $chargePlanAtt[3];
-    $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
-    $result = $conn->query($sql);
-    $optionIndex = 0;
-    $Account = null;
-    if ($row = mysqli_fetch_row($result)) {
-        for($i = 0; $i < count($chargePlanIDs) ; $i++ )
-        {
-            if($row[3] == $chargePlanIDs[$i])
-            {
-                $optionIndex = $i;
-                break;
-            }
-        }
-        $Account = new Accounts($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$drawLimits[$optionIndex],$chargeVals[$optionIndex]);
-    }
-    return $Account;
-}
-
-/**
- * @param $conn
- * @param $clientID
- * @return array
- *
- * Return all the Accounts owned by a given client.
- */
-function generateAccountListByClientID($conn, $clientID)
-{
-    $chargePlanAtt = generateChargePlanArrays($conn);
-    $chargePlanIDs = $chargePlanAtt[0];
-    $optionNames = $chargePlanAtt[1];
-    $drawLimits = $chargePlanAtt[2];
-    $chargeVals = $chargePlanAtt[3];
-    $sql = "SELECT * FROM account WHERE client_id = '$clientID'";
-    $result = $conn->query($sql);
-    $optionIndex = 0;
-    $Account = null;
-    $AccountList = array();
-    $listIndex = 0;
-    while ($row = mysqli_fetch_row($result)) {
-        for($i = 0; $i < count($chargePlanIDs) ; $i++ )
-        {
-            if($row[3] == $chargePlanIDs[$i])
-            {
-                $optionIndex = $i;
-            }
-        }
-        $Account = new Accounts($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],$row[7],$row[8],$drawLimits[$optionIndex],$chargeVals[$optionIndex]);
-        $AccountList[$listIndex] = $Account;
-        $listIndex++;
-    }
-    return $AccountList;
-}
-
-/**
- * @param $conn
- * @return array
- */
-function generateChargePlanArrays($conn)
-{
-    $chargePlansIDArray = array();
-    $optionNamesArray = array();
-    $drawLimitsArray = array();
-    $chargeValsArray = array();
-    $sql = "SELECT * FROM chargeplan";
-    $result = $conn->query($sql);
-    $i =0;
-    while ($row = mysqli_fetch_row($result)) {
-        $chargePlansIDArray[$i] = $row[0];
-        $optionNamesArray[$i] = $row[1];
-        $drawLimitsArray[$i] = $row[2];
-        $chargeValsArray[$i] = $row[3];
-        $i++;
-    }
-    $arrayOfAttributes = array($chargePlansIDArray, $optionNamesArray, $drawLimitsArray, $chargeValsArray);
-    return $arrayOfAttributes;
-}
-
-/**
- * @param $accountID
- * @return mixed
- */
-function getAvailableFunds($accountID)
-{
-    $conn = getDBConnection();
-    $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    if($row["account_type"] === "chequing" || $row["account_type"] === "saving") {
-        $conn->close();
-        return $row["balance"];
-    }
-    else {
-        $conn->close();
-        return $row["credit_limit"] - $row["balance"];
-    }
-}
-
-function getAccountType($accountID)
-{
-    $conn = getDBConnection();
-    $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $conn->close();
-    return $row["account_type"];
-}
-
-//check if account exists
-function doesAccountExists($accountID)
-{
-    $conn = getDBConnection();
-    $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0)
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-?>

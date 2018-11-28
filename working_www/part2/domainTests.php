@@ -20,13 +20,13 @@ include "Domain_Logic.php";
 
 <?php
 $conn = getDBConnection();
-$testACC = generateInstancedAccountByID($conn, 1);
+$testACC = Accounts::generateInstancedAccountByID($conn, 1);
 
 $testACC->toString();
 
 echo "</br>";
 
-$testACCList = generateAccountListByClientID($conn, 1);
+$testACCList = Accounts::generateAccountListByClientID($conn, 1);
 
 for($i = 0; $i<count($testACCList); $i++)
 {
@@ -34,7 +34,7 @@ for($i = 0; $i<count($testACCList); $i++)
     echo "</br>";
 }
 
-$testChargeplan = generateChargePlanArrays($conn);
+$testChargeplan = Accounts::generateChargePlanArrays($conn);
 $test0 = $testChargeplan[0];
 $test1 = $testChargeplan[1];
 $test2 = $testChargeplan[2];
@@ -52,7 +52,7 @@ $testACC->UpdateByID($conn);
 echo "</br>";
 $testACC->toString();
 echo "</br>";
-$testAcc3 = generateInstancedAccountByID($conn, 3);
+$testAcc3 = Accounts::generateInstancedAccountByID($conn, 3);
 $testAcc3->toString();
 $testACC->setChargePlanID(0);
 $testACC->UpdateByID($conn);
@@ -78,6 +78,16 @@ echo "</br>";
 $testAcc3->toString();
 echo "</br>";
 $branchACC->toString();
+echo "</br>";
+$EmailACCfind = Accounts::findAccountByEmail($conn, 'trdhge@gmail.com');
+echo "</br>";
+$EmailACCfind->toString();
+echo "</br>";
+$PhoneACCfind = Accounts::findAccountByPhone($conn, '514-222-3456');
+echo "</br>";
+$PhoneACCfind->toString();
+echo "</br>";
+echo "</br>";
 $conn->close();
 ?>
 
