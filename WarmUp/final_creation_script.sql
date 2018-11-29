@@ -89,7 +89,6 @@ CREATE TABLE IF NOT EXISTS Account (
         lvl             varchar(255),   -- personal, business or corporate
         transactionLeft int, -- defaults to whats in charge plan
         foreign key(client_id) references Client(client_id),
-        foreign key(chargePlan_id) references ChargePlan(chargePlan_id),
         primary key(account_id)
 );
 
@@ -110,6 +109,9 @@ CREATE TABLE IF NOT EXISTS ChargePlan (
         charge_value    float, -- periodic fees
         primary key(chargePlan_id)
 );
+\
+
+ALTER TABLE Account ADD FOREIGN KEY (chargePlan_id) REFERENCES ChargePlan(chargePlan_id);
 
 /* Transactions */
 CREATE TABLE IF NOT EXISTS Transactions (
