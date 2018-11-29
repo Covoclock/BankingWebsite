@@ -7,6 +7,7 @@
  */
 
 include_once "Client.php";
+include_once "Employee.php";
 
 class Branch
 {
@@ -23,9 +24,10 @@ class Branch
     private $BranchAccount;
 
     private $EmployeeIDList;
+    private $EmployeeObjList;
+
     private $ClientIDList;
     private $AccountIDList;
-
     private $AccountOBJList;
 
     /**
@@ -59,17 +61,62 @@ class Branch
             $this->generateClientIDList($conn);
             $this->generateAccountIDList($conn);
             $this->instantiateAccountObjList($conn);
+            $this->generateEmployeeIDList($conn);
+            $this->instantiateEmployeeObjList($conn);
         }
         else{
-            echo"No Valid branch";
+            echo"No valid branch";
         }
     }
 
+    public static function generateListAllBranch($conn)
+    {
+        $BranchList = array();
+        $sql = "SELECT * FROM Branch";
+        $result = $conn->query($sql);
+        $i = 0;
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $BranchList[$i] = new Branch($conn, $row['branch_id']);
+            $i++;
+        }
+        return $BranchList;
+    }
+
+    public static function generateListBranchByCity($conn, $cityName)
+    {
+        $BranchList = array();
+        $sql = "SELECT * FROM Branch WHERE city='$cityName'";
+        $result = $conn->query($sql);
+        $i = 0;
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $BranchList[$i] = new Branch($conn, $row['branch_id']);
+            $i++;
+        }
+        return $BranchList;
+    }
+
+    public static function calculateBranchListProfits($conn, $date1, $date2, $instancedList)
+    {
+        $branchListProfits = 0;
+        for($index = 0; $index < count($instancedList); $index++)
+        {
+            $tempvar = $instancedList[$index]->calculateProfit($conn, $date1, $date2);
+            $branchListProfits += $tempvar;
+        }
+        return $branchListProfits;
+    }
+
+
+
     /*
-     * profit related methods
+     *
+     * -----------------------------Revenues related methods-----------------------------------------------------------
+     *
      */
 
-    function calculateRevenuesFromChargePlans()
+    public function calculateRevenuesFromChargePlans()
     {
         $revenue = 0;
         for($i =0; $i<count($this->AccountOBJList) ;$i++)
@@ -80,7 +127,7 @@ class Branch
         return $revenue;
     }
 
-    function calculateRevenuesFromTransactions()
+    public function calculateRevenuesFromTransactions()
     {
         $revenue = 0;
         for($i =0; $i<count($this->AccountOBJList) ;$i++)
@@ -94,7 +141,7 @@ class Branch
         return $revenue;
     }
 
-    function calculateRevenuesFromCredit()
+    public function calculateRevenuesFromCredit()
     {
         $revenue = 0;
         for($i =0; $i<count($this->AccountOBJList) ;$i++)
@@ -108,13 +155,69 @@ class Branch
     }
 
 
-    function calculateBranchProfits()
+    public function calculateBranchRevenues()
     {
         $totalRevenues = $this->calculateRevenuesFromChargePlans();
         $totalRevenues += $this->calculateRevenuesFromTransactions();
         $totalRevenues += $this->calculateRevenuesFromCredit();
         return $totalRevenues;
     }
+
+    /*
+     *
+     * -----------------------------cost related methods-----------------------------------------------------------
+     *
+     */
+
+    public function calculateInterestCost()
+    {
+        $costs = 0;
+        for($i =0; $i<count($this->AccountOBJList) ;$i++)
+        {
+            if($this->AccountOBJList[$i]->getAccountType() != 'credit')
+            {
+                $tempBal = $this->AccountOBJList[$i]->getBalance();
+                $tempInt = $this->AccountOBJList[$i]->getInterests();
+                $tempResults = $tempBal*$tempInt;
+                $costs += $tempResults;
+            }
+        }
+        return $costs;
+    }
+
+    public function calculateEmployeeCosts($dbc, $date1, $date2)
+    {
+        $costs = 0;
+        $employeeNum = count($this->EmployeeIDList);
+        for($i =0; $i< $employeeNum ;$i++)
+        {
+            $costs += $this->EmployeeObjList[$i]->getPayedInterval($dbc, $date1, $date2);
+        }
+        return $costs;
+    }
+
+    public function calculateCosts($dbc, $date1, $date2)
+    {
+        $interestCosts = $this->calculateInterestCost();
+        $employeeCosts = $this->calculateEmployeeCosts($dbc, $date1, $date2);
+        return ($interestCosts + $employeeCosts);
+    }
+
+
+    /*
+     *
+     * -----------PROFIT CALC--------------
+     *
+     */
+
+    public function calculateProfit($dbc, $date1, $date2)
+    {
+        $revenues = $this->calculateBranchRevenues();
+        $expanses = $this->calculateCosts($dbc, $date1, $date2);
+        return ($revenues - $expanses);
+    }
+
+
 
     /*
      * ------------CUSTOM METHODS -------------------
@@ -132,7 +235,7 @@ class Branch
         $this->BranchClient = $ClientOBJ;
     }
 
-    public function  instantiateOwnBankAcc($conn)
+    Public function  instantiateOwnBankAcc($conn)
     {
         $this->instantiateOwnClient($conn);
         $clientInstance = $this->BranchClient;
@@ -163,11 +266,19 @@ class Branch
         $this->setEmployeeIDList($EmployeeList);
     }
 
+    function instantiateEmployeeObjList($conn)
+    {
+        $employeeNum = count($this->EmployeeIDList);
+        for($i =0; $i < $employeeNum ;$i++)
+        {
+            $this->EmployeeObjList[$i] = new Employee($conn, $this->EmployeeIDList[$i]);
+        }
+    }
+
     public function generateClientIDList($conn)
     {
         $sql = "SELECT * FROM Client WHERE branch_id = '$this->ID' and lastname <> 'Branch'";
         $result = $conn->query($sql);
-
         $ClientList = array();
         $i = 0;
         while ($row = mysqli_fetch_row($result)) {
@@ -175,7 +286,6 @@ class Branch
             $ClientList[$i] = $row[0];
             $i++;
         }
-
         $this->setClientIDList($ClientList);
     }
 
@@ -468,6 +578,22 @@ class Branch
     public function setAccountOBJList($AccountOBJList)
     {
         $this->AccountOBJList = $AccountOBJList;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmployeeObjList()
+    {
+        return $this->EmployeeObjList;
+    }
+
+    /**
+     * @param mixed $EmployeeObjList
+     */
+    public function setEmployeeObjList($EmployeeObjList)
+    {
+        $this->EmployeeObjList = $EmployeeObjList;
     }
 
 

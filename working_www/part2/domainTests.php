@@ -6,7 +6,7 @@
  * Time: 6:34 PM
  */
 
-include "Domain_Logic.php";
+include_once "Domain_Logic.php";
 
 ?>
 <!DOCTYPE html>
@@ -91,12 +91,61 @@ echo "</br>";
 $chargePlanREV = $branchInstance2->calculateRevenuesFromChargePlans();
 $interestREV = $branchInstance2->calculateRevenuesFromCredit();
 $transactionREV = $branchInstance2->calculateRevenuesFromTransactions();
+$interestCost = $branchInstance2->calculateInterestCost();
 echo "</br>";
 echo "$chargePlanREV";
 echo "</br>";
 echo "$interestREV";
 echo "</br>";
 echo "$transactionREV";
+echo "</br>";
+echo "$interestCost";
+echo "</br>";
+$currentDate = strtotime(Date("y-m-d"));
+echo "$currentDate";
+echo "</br>";
+$employeeTest = new Employee($conn, 1);
+$testDate1 = strtotime(Date("18-06-22"));
+echo "$testDate1";
+echo "</br>";
+$testpayed = $employeeTest->getPayedSince($conn, $testDate1);
+echo "</br>";
+echo "$testpayed";
+$testpayed = $employeeTest->getPayedInterval($conn, $testDate1,  strtotime(Date("y-m-d")));
+echo "</br>";
+echo "payed test: $testpayed";
+echo "<h3>Test round 4</h3>";
+echo "</br>";
+$employeeCostsTest1 = $branchInstance2->calculateEmployeeCosts($conn, $testDate1, Date("y-m-d"));
+$interestCostTest1 = $branchInstance2->calculateInterestCost();
+$revenuesTest1 = $branchInstance2->calculateBranchRevenues();
+$profitTest = $branchInstance2->calculateProfit($conn, $testDate1, Date("y-m-d"));
+echo "revenues: $revenuesTest1";
+echo "</br>";
+echo "employees costs: $employeeCostsTest1";
+echo "</br>";
+echo "Interest costs :$interestCostTest1";
+echo "</br>";
+echo "Profits: $profitTest";
+echo "</br>";
+$branchList = Branch::generateListAllBranch($conn);
+echo "</br>";
+
+for($index = 0; $index < count($branchList); $index++)
+{
+    $tempvar = $branchList[$index]->calculateProfit($conn, $testDate1, Date("y-m-d"));
+    echo "$tempvar </br>";
+}
+
+$MtlBranchList = Branch::generateListBranchByCity($conn, 'Montreal');
+
+for($index = 0; $index < count($MtlBranchList); $index++)
+{
+    $tempvar = $MtlBranchList[$index]->calculateProfit($conn, $testDate1, Date("y-m-d"));
+    echo "$tempvar </br>";
+}
+
+
 echo "</br>";
 $conn->close();
 ?>
