@@ -5,10 +5,11 @@
  * Date: 11/24/2018
  * Time: 4:18 PM
  */
-include_once dirname(__FILE__)."/../credentialCheck.php";
-//include "..\AdminSearch\DataGateway.php";
+//require dirname(__FILE__)."/../credentialCheck.php";
+include_once "..\AdminSearch\DataGateway.php";
 
-class Accounts {
+class Accounts
+{
     private $ID;
     private $clientID;
     private $accountType;
@@ -91,7 +92,6 @@ class Accounts {
                     return($clientAccList[$i]);
                 }
             }
-
             echo"This Email Address in not linked to any Checking account";
         }
 
@@ -167,25 +167,12 @@ class Accounts {
         echo "chargePrice: $this->chargePrice </br>";
     }
 
-    public function __toString()
-    {
-	$s = "";
-        $s .=  "<br>";
-        $s .=  "<strong>Account ID</strong>: $this->ID <br>";
-        $s .=  "<strong>Account Type</strong>: $this->accountType <br>";
-        $s .=  "<strong>Balance</strong>: $this->balance <br>";
-        $s .=  "<strong>Credit Limit</strong>: $this->credit_limit <br>";
-        $s .=  "<strong>Interests</strong>: $this->interests <br>";
-        $s .=  "<strong>Level</strong>: $this->level <br>";
-	return $s;
-    }
-
     public static function transferInstanciation($dbc, Accounts $account1 , Accounts $account2, $amount)
     {
         $Account1ID = $account1->getID();
         $Account2ID = $account2->getID();
         $transactionDateTime = date("y-m-d h:i:sa");
-        $sql = "INSERT INTO transactions(account1_id, account2_id, amount, dt)
+        $sql = "INSERT INTO Transactions(account1_id, account2_id, amount, dt)
             VALUES ('$Account1ID', '$Account2ID ', '$amount', '$transactionDateTime')";
         if ($dbc->query($sql) === TRUE) {
             echo "Record updated successfully";
@@ -202,7 +189,7 @@ class Accounts {
         $optionNames = $chargePlanAtt[1];
         $drawLimits = $chargePlanAtt[2];
         $chargeVals = $chargePlanAtt[3];
-        $sql = "SELECT * FROM account WHERE account_id = '$accountID'";
+        $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
         $result = $conn->query($sql);
         $optionIndex = 0;
         $Account = null;
@@ -234,7 +221,7 @@ class Accounts {
         $optionNames = $chargePlanAtt[1];
         $drawLimits = $chargePlanAtt[2];
         $chargeVals = $chargePlanAtt[3];
-        $sql = "SELECT * FROM account WHERE client_id = '$clientID'";
+        $sql = "SELECT * FROM Account WHERE client_id = '$clientID'";
         $result = $conn->query($sql);
         $optionIndex = 0;
         $Account = null;
@@ -291,18 +278,20 @@ class Accounts {
         }
     }
 
-    public static function getStaticAccountType($conn, $accountID)
+    public static function getStaticAccountType($accountID)
     {
+        $conn = getDBConnection();
         $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
         $result = $conn->query($sql);
-        if($row = $result->fetch_assoc()){
-        	return $row["account_type"];
-	}
+        $row = $result->fetch_assoc();
+        $conn->close();
+        return $row["account_type"];
     }
 
 //check if account exists
-    public static function doesAccountExists($conn, $accountID)
+    public static function doesAccountExists($accountID)
     {
+        $conn = getDBConnection();
         $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0)

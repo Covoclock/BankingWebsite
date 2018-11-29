@@ -7,13 +7,12 @@
  */
 
 include_once "Branch.php";
-include_once dirname(__FILE__)."/../credentialCheck.php";
+//require dirname(__FILE__)."/../credentialCheck.php";
 
-//TODO VERIFY THIS WORKS PROPERLY
 //execute transfers
 function transferTo($dbc, $account1ID, $account2ID, $amount)
 {
-    if(!Accounts::doesAccountExists($dbc, $account1ID) || !Accounts::doesAccountExists($dbc, $account2ID))
+    if(!Accounts::doesAccountExists($account1ID) || !Accounts::doesAccountExists($account2ID))
     {
         echo "One of the accounts do not exists </br>";
     }
@@ -35,9 +34,9 @@ function transferTo($dbc, $account1ID, $account2ID, $amount)
         else if($instancedAcc1->getTransactionLeft() <= 0)
         {
             //2$ charges per transactions
-            //TODO iT DOES NOT REMOVE A TRANSACTIONLEFT AT THIS POINT, DUNNO IF WE WANT TO CHANGE IT
             if ($instancedAcc1->getBalance() > $amount + 2)
             {
+                $instancedAcc1->setTransactionLeft($instancedAcc1->getTransactionLeft() -1);
                 $instancedBranch = new Branch($dbc, $instancedAcc1->findBranchID($dbc));
                 $instancedBranch->instantiateOwnBankAcc($dbc);
 
@@ -105,7 +104,7 @@ function transferInstanciation($dbc, Accounts $account1 , Accounts $account2, $a
     $Account1ID = $account1->getID();
     $Account2ID = $account2->getID();
     $transactionDateTime = date("y-m-d h:i:sa");
-    $sql = "INSERT INTO Transactions(account1_id, account2_id, amount, dt)
+    $sql = "INSERT INTO transactions(account1_id, account2_id, amount, dt)
             VALUES ('$Account1ID', '$Account2ID ', '$amount', '$transactionDateTime')";
     if ($dbc->query($sql) === TRUE) {
         echo "Record updated successfully";

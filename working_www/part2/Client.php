@@ -8,7 +8,7 @@
  * @copyright (C) 2018 Sebastien Bah <sebastien.bah@mail.mcgill.ca>
  * @license MIT
  */
-include_once dirname(__FILE__)."/../credentialCheck.php";
+//require dirname(__FILE__)."/../credentialCheck.php";
 include_once "Accounts.php";
 
 /* Client Class */
@@ -26,11 +26,12 @@ class Client{
     private $category;
     private $branch_id;
     // Holds all the accounts associated with this client
-    private $AccountList;
+    private $AccoundList;
     /* Class constructor
      * @param $id
      */
     public function __construct($dbc, $id){
+        //global $dbc; //TODO ON MERGE MIGHT WANT TO REMOVE PASSED ARG AND UNCOMMENT THIS LINE
         // Search Client table to find the rest
         $query = "SELECT * FROM Client WHERE client_id = $id";
         if($result = $dbc->query($query)){
@@ -56,11 +57,12 @@ class Client{
     /* Finds all the accounts associated with said client
      */
     public function generateAccountList($dbc){ //TODO ON MERGE MIGHT WANT TO REMOVE PASSED ARG
+        //global $dbc; //TODO ON MERGE MIGHT WANT TO REMOVE PASSED ARG AND UNCOMMENT THIS LINE
         $query = "SELECT * FROM Account WHERE client_id = $this->id";
         $result = $dbc->query($query);
         $i = 0;
         while($row = $result->fetch_assoc()){
-            $this->AccountList[$i] = Accounts::accountFromID($dbc,$row['account_id']); 
+            $this->AccoundList[$i] = Accounts::accountFromID($dbc,$row['account_id']); //TODO remove $dbc or don't
             $i++;
         }
     }
@@ -83,16 +85,6 @@ class Client{
     /*
          *  -----------GETTERS AND SETTERS --------------
          */
-
-    public function getAccountList()
-    {
-        return $this->AccountList;
-    }
-    public function setAccountList($list)
-    {
-        $this->AccountList = $list;
-    }
-
     /**
      * @return mixed
      */
