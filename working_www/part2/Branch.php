@@ -6,7 +6,7 @@
  * Time: 1:13 AM
  */
 
-include "Client.php";
+include_once "Client.php";
 
 class Branch
 {
@@ -132,7 +132,7 @@ class Branch
         $this->BranchClient = $ClientOBJ;
     }
 
-    Public function  instantiateOwnBankAcc($conn)
+    public function  instantiateOwnBankAcc($conn)
     {
         $this->instantiateOwnClient($conn);
         $clientInstance = $this->BranchClient;

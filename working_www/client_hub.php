@@ -12,7 +12,7 @@ include_once "billCreationConstant.php"; // Defines the number of max bills to b
 
 if(isset($_SESSION['user_id'])){
 	$client =  new Client($dbc, $_SESSION['user_id']);
-	$accounts = generateAccountListByClientID($dbc, $client->getID());
+	$accounts = $client->getAccountList();
 }else{
 	//client id not set in session properly
 	header("Location: index.php");
@@ -20,8 +20,27 @@ if(isset($_SESSION['user_id'])){
 
 // Creates all the inputs for the bills
 function loopCreationBills(){
+	global $accounts;
 	for ($i=1; $i<=MAX_BILLS; $i++){
-    		echo "<p>Recepient Account ID: <input type='text' name='recipientAccount_$i'> Bill Amount: <input type='number' step='0.01' min='0' name='billAmount_$i'></p>";
+		echo "<div class='form-row'>";
+		echo "<div class='col'>";
+		echo "Sender Account ID: <select  name='senderAccount_{$i}'>";
+		for ($x=0; $x<count($accounts); $x++){
+			echo "<option>{$accounts[$x]->getID()}";
+			echo "</option>";	
+		}
+		echo "</select>";
+		echo "</div>";
+
+		echo "<div class='col'>";
+    		echo "Recepient Account ID: <input type='number' step='1' min='1' name='recipientAccount_$i'>";
+		echo "</div>";
+
+		echo "<div class='col'>";
+		echo "Bill Amount: <input type='number' step='0.01' min='0' name='billAmount_$i'></p>";
+		echo "</div>";
+
+		echo "</div>";
 	}
 }
 
@@ -183,7 +202,6 @@ function loopCreationBills(){
 			<?php
 				// For all accounts, search if bills tied to it
 		
-				$accounts = generateAccountListByClientID($dbc, $client->getID());
 				for ($i=0; $i<count($accounts); $i++){
 					// Search for bills
 					$query = "SELECT * FROM Bills WHERE account1_id = {$accounts[$i]->getID()}";
@@ -208,7 +226,7 @@ function loopCreationBills(){
 	<h3>Setup Bills</h3>
     		<form action="billCreation.php" method="post">
     		<?php loopCreationBills(); ?>
-    		<p><input type="checkbox" name="recurringBills" value="recurringBills">Bill(s) Recurring</p>
+    		<p><input type="checkbox" name="recurringBills" value="1">Bill(s) Recurring</p>
     		<button type="submit" class='btn btn-primary' >Submit New Bills</button>
     		</form>
 	</div>

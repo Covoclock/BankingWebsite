@@ -96,6 +96,8 @@
                 <br>
                 <a href="Specific_Account_Page.php">Specific Account</a>
                 <br>
+                <a href="part2/domainTests.php">domainTests</a>
+                <br>
 
             </div>
             <!-- /container -->

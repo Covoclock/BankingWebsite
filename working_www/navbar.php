@@ -5,7 +5,7 @@ function navbar(){
   		<div class='container-fluid'>
   		  <ul class='navbar-nav nav'>
   		    <li class='nav-item active'>
-  		      <a class='nav-link' href='/index.php'>Home <span class='sr-only'>(current)</span></a>
+  		      <a class='nav-link' href='/index.php'>Home <span class='sr-only'></span></a>
   		    </li>
   		    <li class='nav-item'>
   		      <a class='nav-link' href='/client_hub.php'>Client Hub</a>

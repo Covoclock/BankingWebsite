@@ -10,6 +10,7 @@ verifySession($dbc, "client");
 include_once "billCreationConstant.php"; // Defines the number of max bills to be created at the same time
 include_once "part2/Client.php";
 include_once "part2/Bills.php";
+include_once "part2/Accounts.php";
 include_once "part2/Domain_Logic.php";
 
 
@@ -25,22 +26,34 @@ $account_id = '1';
 
 // Verifies content before new bill
 function processSingleNewBill($dbc, $from, $to, $amount, $recurring){
-	if(!(empty($from) || !doesAccountExists($dbc, $to) || empty($amount) || empty($recurring))){
-		Bill::addNewBill($dbc, $from, $to, $amount, $recurring);
+	$receiver_exists = Accounts::doesAccountExists($dbc, $to);
+	$sender_exists = !empty($from);
+	$valid_amount = ($amount >0);
+	$recur_set = !is_null($recurring);
+	if($receiver_exists && $sender_exists && $valid_amount && $recur_set){
+		echo "Creating new bill";
+		return Bill::addNewBill($dbc, $from, $to, $amount, $recurring);
 	}
 }
 
 // Loop through all the possible entries in the new bill section
 function loopProcessBills($dbc){
-	global $account_d; // Needs to be set to post or change the from to select which account it comes from
-	$from = $account_id;	
 
-	$recurring = $_POST["recurringBills"];
+	if( $_POST["recurringBills"] == '1') $recurring = 1;
+	else $recurring = 0;
+	
+	$additional_fee = false;	
 	for ($i=1; $i<=MAX_BILLS; $i++){
+		$from = $_POST["senderAccount_{$i}"];
 		$to = $_POST["recipientAccount_{$i}"];
 		$amount = floatval($_POST["billAmount_{$i}"]);
-		processSingleNewBill($dbc, $from, $to, $amount, $recurring);
+		$status =  processSingleNewBill($dbc, $from, $to, $amount, $recurring);
+		if (!$additional_fee && $status) $additional_fee = true;
 	}	
+	if($additional_fee){
+	// Charge a fee
+
+	}
 	echo "<script>window.location.replace('client_hub.php')</script>";
 }
 loopProcessBills($dbc);

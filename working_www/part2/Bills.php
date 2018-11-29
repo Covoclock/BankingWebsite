@@ -3,8 +3,7 @@ require dirname(__FILE__)."/../credentialCheck.php";
 require_once "Accounts.php";
 require_once "Domain_Logic.php";
 /* Bill Class */
-class Bill
-{
+class Bill{
     private $bill_id;
     private $amount;
     private $account1_id;
@@ -44,6 +43,10 @@ class Bill
     {
         $query = "INSERT INTO Bills(amount, account1_id, account2_id, recurring) VALUES ($this->amount, $this->account1_id, $this->account2_id, 0 )";
         return $dbc->query($query);
+    }
+    public static function addNewBill($dbc, $from, $to, $amount, $recurring){
+	$query = "INSERT INTO Bills(account1_id, account2_id, amount, recurring) VALUES ($from, $to, $amount, $recurring)";
+	return $dbc->query($query);
     }
 
     public static function singleBill($dbc, Bill $bill)

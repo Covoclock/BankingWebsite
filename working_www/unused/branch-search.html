@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Branch Catalog Search</title>
+</head>
+
+<body>
+<h1>Branch Catalog Search</h1>
+
+<form action="branch_results.php" method="post">
+    <p><strong>Choose Search Type:</strong><br />
+        <select name="searchtype">
+            <option value="branch_id">branch_id</option>
+            <option value="province">province</option>
+            <option value="city">city</option>
+            <option value="street">street</option>
+            <option value="phone">phone</option>
+            <option value="fax">fax</option>
+            <option value="opening_date">opening_date</option>
+            <option value="manager_id">manager_id</option>
+            <option value="isHeadOffice">isHeadOffice</option>
+        </select>
+    </p>
+    <p><strong>Enter Search Term:</strong><br />
+        <input name="searchterm" type="text" size="40"></p>
+
+    <p><input type="submit" name="submit" value="Search"></p>
+</form>
+
+</body>
+</html>

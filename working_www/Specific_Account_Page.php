@@ -9,7 +9,7 @@ include "navbar.php";
 verifySession($dbc, "client");
 
 $account_id = $_POST['accountID'];
-$account_obj = \BankingApp\Accounts::accountFromID($dbc, $account_id);
+$account_obj = Accounts::accountFromID($dbc, $account_id);
 
 if(isset($_POST['submitTransaction'])){
     $recipientAccountId = $_POST['recipientAccountId'];

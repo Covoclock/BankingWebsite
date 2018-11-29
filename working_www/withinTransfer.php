@@ -21,8 +21,8 @@ function moveMoney($conn, $from, $to, $amount){
 	$amount = floatval($amount);
 	if(isset($from) && isset($to) && isset($amount) && !empty($amount)){
 		$amount = floatval($amount);
-		$from = \BankingApp\Accounts::accountFromID($conn,$from);
-		$to = \BankingApp\Accounts::accountFromID($conn,$to);
+		$from = Accounts::accountFromID($conn,$from);
+		$to = Accounts::accountFromID($conn,$to);
 
 		if(possibleTransaction($from, $amount)){
 			transferAccountUpdate($conn,$from, $to, $amount);

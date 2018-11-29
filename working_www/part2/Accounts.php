@@ -5,11 +5,10 @@
  * Date: 11/24/2018
  * Time: 4:18 PM
  */
-//require dirname(__FILE__)."/../credentialCheck.php";
-include "..\AdminSearch\DataGateway.php";
+include_once dirname(__FILE__)."/../credentialCheck.php";
+//include "..\AdminSearch\DataGateway.php";
 
-class Accounts
-{
+class Accounts {
     private $ID;
     private $clientID;
     private $accountType;
@@ -168,6 +167,19 @@ class Accounts
         echo "chargePrice: $this->chargePrice </br>";
     }
 
+    public function __toString()
+    {
+	$s = "";
+        $s .=  "<br>";
+        $s .=  "<strong>Account ID</strong>: $this->ID <br>";
+        $s .=  "<strong>Account Type</strong>: $this->accountType <br>";
+        $s .=  "<strong>Balance</strong>: $this->balance <br>";
+        $s .=  "<strong>Credit Limit</strong>: $this->credit_limit <br>";
+        $s .=  "<strong>Interests</strong>: $this->interests <br>";
+        $s .=  "<strong>Level</strong>: $this->level <br>";
+	return $s;
+    }
+
     public static function transferInstanciation($dbc, Accounts $account1 , Accounts $account2, $amount)
     {
         $Account1ID = $account1->getID();
@@ -279,20 +291,18 @@ class Accounts
         }
     }
 
-    public static function getStaticAccountType($accountID)
+    public static function getStaticAccountType($conn, $accountID)
     {
-        $conn = getDBConnection();
         $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $conn->close();
-        return $row["account_type"];
+        if($row = $result->fetch_assoc()){
+        	return $row["account_type"];
+	}
     }
 
 //check if account exists
-    public static function doesAccountExists($accountID)
+    public static function doesAccountExists($conn, $accountID)
     {
-        $conn = getDBConnection();
         $sql = "SELECT * FROM Account WHERE account_id = '$accountID'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0)

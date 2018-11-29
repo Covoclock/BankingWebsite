@@ -1,0 +1,455 @@
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 575.98px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 767.98px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 991.98px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 1199.98px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 575.98px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 767.98px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 991.98px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (max-width: 1199.98px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 576px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 768px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 992px) {$/
+@media	css/bootstrap-grid.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap-grid.min.css	/^ *\/@-ms-viewport{width:device-width}html{box-sizin/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+@media	css/bootstrap-responsive.css	/^@media (min-width: 768px) and (max-width: 979px) {/
+@media	css/bootstrap-responsive.css	/^@media (max-width: 767px) {$/
+@media	css/bootstrap-responsive.css	/^@media (min-width: 1200px) {$/
+@media	css/bootstrap-responsive.css	/^@media (min-width: 768px) and (max-width: 979px) {/
+@media	css/bootstrap-responsive.css	/^@media (max-width: 767px) {$/
+@media	css/bootstrap-responsive.css	/^@media (max-width: 480px) {$/
+@media	css/bootstrap-responsive.css	/^@media (max-width: 979px) {$/
+@media	css/bootstrap-responsive.css	/^@media (min-width: 980px) {$/
+@supports	css/bootstrap.css	/^@supports ((position: -webkit-sticky) or (position/
+@supports	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+Accounts	part2/Accounts.php	12
+Alert	js/bootstrap.bundle.js	/^      function Alert(element) {$/
+Alert	js/bootstrap.js	/^      function Alert(element) {$/
+Branch	part2/Branch.php	12
+Button	js/bootstrap.bundle.js	/^      function Button(element) {$/
+Button	js/bootstrap.js	/^      function Button(element) {$/
+Carousel	js/bootstrap.bundle.js	/^      function Carousel(element, config) {$/
+Carousel	js/bootstrap.js	/^      function Carousel(element, config) {$/
+Client{	part2/Client.php	17
+Collapse	js/bootstrap.bundle.js	/^      function Collapse(element, config) {$/
+Collapse	js/bootstrap.js	/^      function Collapse(element, config) {$/
+Dropdown	js/bootstrap.bundle.js	/^      function Dropdown(element, config) {$/
+Dropdown	js/bootstrap.js	/^      function Dropdown(element, config) {$/
+GenerateDBQuery	AdminSearch/ResultListing.php	/^function GenerateDBQuery()$/
+GenerateList	AdminSearch/ResultListing.php	/^function GenerateList($result)$/
+Hn	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+In	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+Kn	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+Lt	js/jquery.js	/^return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.ori/
+Modal	js/bootstrap.bundle.js	/^      function Modal(element, config) {$/
+Modal	js/bootstrap.js	/^      function Modal(element, config) {$/
+Ot	js/jquery.js	/^return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.ori/
+Popover	js/bootstrap.bundle.js	/^      function Popover() {$/
+Popover	js/bootstrap.js	/^      function Popover() {$/
+Popper	js/bootstrap.bundle.js	/^    function Popper(reference, popper) {$/
+ScrollSpy	js/bootstrap.bundle.js	/^      function ScrollSpy(element, config) {$/
+ScrollSpy	js/bootstrap.js	/^      function ScrollSpy(element, config) {$/
+SearchDispatcher	AdminSearch/AdminSearchHelper.php	/^function SearchDispatcher($searchDomain)$/
+Tab	js/bootstrap.bundle.js	/^      function Tab(element) {$/
+Tab	js/bootstrap.js	/^      function Tab(element) {$/
+Tooltip	js/bootstrap.bundle.js	/^      function Tooltip(element, config) {$/
+Tooltip	js/bootstrap.js	/^      function Tooltip(element, config) {$/
+_createClass	js/bootstrap.bundle.js	/^  function _createClass(Constructor, protoProps, s/
+_createClass	js/bootstrap.js	/^  function _createClass(Constructor, protoProps, s/
+_defineProperties	js/bootstrap.bundle.js	/^  function _defineProperties(target, props) {$/
+_defineProperties	js/bootstrap.js	/^  function _defineProperties(target, props) {$/
+_defineProperty	js/bootstrap.bundle.js	/^  function _defineProperty(obj, key, value) {$/
+_defineProperty	js/bootstrap.js	/^  function _defineProperty(obj, key, value) {$/
+_inheritsLoose	js/bootstrap.bundle.js	/^  function _inheritsLoose(subClass, superClass) {$/
+_inheritsLoose	js/bootstrap.js	/^  function _inheritsLoose(subClass, superClass) {$/
+_n	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+_objectSpread	js/bootstrap.bundle.js	/^  function _objectSpread(target) {$/
+_objectSpread	js/bootstrap.js	/^  function _objectSpread(target) {$/
+_t	js/jquery.js	/^return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.ori/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.css	/^@media screen and (prefers-reduced-motion: reduce)/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+and	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+applyStyle	js/bootstrap.bundle.js	/^  function applyStyle(data) {$/
+applyStyleOnLoad	js/bootstrap.bundle.js	/^  function applyStyleOnLoad(reference, popper, opt/
+arrow	js/bootstrap.bundle.js	/^  function arrow(data, options) {$/
+attachToScrollParents	js/bootstrap.bundle.js	/^  function attachToScrollParents(scrollParent, eve/
+branch_id_i	client_admin.html	/^Update Bank client Information<\/h1>$/
+branch_id_u	client_admin.html	/^Delete Bank client Information<\/h1>$/
+calculateBranchProfits	part2/Domain_Logic.php	/^function calculateBranchProfits($BranchID)$/
+category_i	client_admin.html	/^branch_id<\/label>$/
+category_u	client_admin.html	/^branch_id<\/label>$/
+city_i	client_admin.html	/^province<\/label>$/
+city_u	client_admin.html	/^province<\/label>$/
+client_id_u	client_admin.html	/^firstName<\/label>$/
+clockwise	js/bootstrap.bundle.js	/^  function clockwise(placement) {$/
+computeAutoPlacement	js/bootstrap.bundle.js	/^  function computeAutoPlacement(placement, refRect/
+computeStyle	js/bootstrap.bundle.js	/^  function computeStyle(data, options) {$/
+defineProperties	js/bootstrap.bundle.js	/^    function defineProperties(target, props) {$/
+delete	AdminSearch/DataGateway.php	/^function delete()$/
+destroy	js/bootstrap.bundle.js	/^  function destroy() {$/
+disableEventListeners	js/bootstrap.bundle.js	/^  function disableEventListeners() {$/
+dob_i	client_admin.html	/^join_date<\/label>$/
+dob_u	client_admin.html	/^join_date<\/label>$/
+doesAccountExists	part2/Domain_Logic.php	/^function doesAccountExists($accountID)$/
+email_i	client_admin.html	/^phone<\/label>$/
+email_u	client_admin.html	/^phone<\/label>$/
+enableEventListeners	js/bootstrap.bundle.js	/^  function enableEventListeners() {$/
+find	js/bootstrap.bundle.js	/^  function find(arr, check) {$/
+findCommonOffsetParent	js/bootstrap.bundle.js	/^  function findCommonOffsetParent(element1, elemen/
+findIndex	js/bootstrap.bundle.js	/^  function findIndex(arr, prop, value) {$/
+firstName_i	client_admin.html	/^lastName<\/label>$/
+firstName_u	client_admin.html	/^lastName<\/label>$/
+flip	js/bootstrap.bundle.js	/^  function flip(data, options) {$/
+ft	js/jquery.js	/^return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.ori/
+function	js/bootstrap.bundle.min.js	/^!function(e,t){"object"==typeof exports&&"undefine/
+function	js/bootstrap.bundle.min.js	/^!function(e,t){"object"==typeof exports&&"undefine/
+function	js/bootstrap.min.js	/^!function(t,e){"object"==typeof exports&&"undefine/
+generateAccountListByClientID	part2/Domain_Logic.php	/^function generateAccountListByClientID($conn, $cli/
+generateChargePlanArrays	part2/Domain_Logic.php	/^function generateChargePlanArrays($conn)$/
+generateDomainSpecificSearchForm	AdminSearch/AdminSearchHelper.php	/^function generateDomainSpecificSearchForm($inputFi/
+generateInstancedAccountByID	part2/Domain_Logic.php	/^function generateInstancedAccountByID($conn, $acco/
+getAccountType	part2/Domain_Logic.php	/^function getAccountType($accountID)$/
+getArea	js/bootstrap.bundle.js	/^  function getArea(_ref) {$/
+getAvailableFunds	part2/Domain_Logic.php	/^function getAvailableFunds($accountID)$/
+getBordersSize	js/bootstrap.bundle.js	/^  function getBordersSize(styles, axis) {$/
+getBoundaries	js/bootstrap.bundle.js	/^  function getBoundaries(popper, reference, paddin/
+getBoundingClientRect	js/bootstrap.bundle.js	/^  function getBoundingClientRect(element) {$/
+getClientRect	js/bootstrap.bundle.js	/^  function getClientRect(offsets) {$/
+getDBConnection	AdminSearch/DataGateway.php	/^function getDBConnection ()$/
+getFixedPositionOffsetParent	js/bootstrap.bundle.js	/^  function getFixedPositionOffsetParent(element) {/
+getOffsetParent	js/bootstrap.bundle.js	/^  function getOffsetParent(element) {$/
+getOffsetRectRelativeToArbitraryNode	js/bootstrap.bundle.js	/^  function getOffsetRectRelativeToArbitraryNode(ch/
+getOppositePlacement	js/bootstrap.bundle.js	/^  function getOppositePlacement(placement) {$/
+getOppositeVariation	js/bootstrap.bundle.js	/^  function getOppositeVariation(variation) {$/
+getOuterSizes	js/bootstrap.bundle.js	/^  function getOuterSizes(element) {$/
+getParentNode	js/bootstrap.bundle.js	/^  function getParentNode(element) {$/
+getPopperOffsets	js/bootstrap.bundle.js	/^  function getPopperOffsets(popper, referenceOffse/
+getReferenceOffsets	js/bootstrap.bundle.js	/^  function getReferenceOffsets(state, popper, refe/
+getRoot	js/bootstrap.bundle.js	/^  function getRoot(node) {$/
+getScroll	js/bootstrap.bundle.js	/^  function getScroll(element) {$/
+getScrollParent	js/bootstrap.bundle.js	/^  function getScrollParent(element) {$/
+getSize	js/bootstrap.bundle.js	/^  function getSize(axis, body, html, computedStyle/
+getSpecialTransitionEndEvent	js/bootstrap.bundle.js	/^    function getSpecialTransitionEndEvent() {$/
+getSpecialTransitionEndEvent	js/bootstrap.js	/^    function getSpecialTransitionEndEvent() {$/
+getStyleComputedProperty	js/bootstrap.bundle.js	/^  function getStyleComputedProperty(element, prope/
+getSupportedPropertyName	js/bootstrap.bundle.js	/^  function getSupportedPropertyName(property) {$/
+getViewportOffsetRectRelativeToArtbitraryNode	js/bootstrap.bundle.js	/^  function getViewportOffsetRectRelativeToArtbitra/
+getWindow	js/bootstrap.bundle.js	/^  function getWindow(element) {$/
+getWindowSizes	js/bootstrap.bundle.js	/^  function getWindowSizes() {$/
+gn	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+hide	js/bootstrap.bundle.js	/^  function hide(data) {$/
+includeScroll	js/bootstrap.bundle.js	/^  function includeScroll(rect, element) {$/
+inner	js/bootstrap.bundle.js	/^  function inner(data) {$/
+ir	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+isFixed	js/bootstrap.bundle.js	/^  function isFixed(element) {$/
+isFunction	js/bootstrap.bundle.js	/^  function isFunction(functionToCheck) {$/
+isIE	js/bootstrap.bundle.js	/^  function isIE(version) {$/
+isModifierEnabled	js/bootstrap.bundle.js	/^  function isModifierEnabled(modifiers, modifierNa/
+isModifierRequired	js/bootstrap.bundle.js	/^  function isModifierRequired(modifiers, requestin/
+isNumeric	js/bootstrap.bundle.js	/^  function isNumeric(n) {$/
+isOffsetContainer	js/bootstrap.bundle.js	/^  function isOffsetContainer(element) {$/
+join_date_i	client_admin.html	/^standing<\/label>$/
+join_date_u	client_admin.html	/^standing<\/label>$/
+keepTogether	js/bootstrap.bundle.js	/^  function keepTogether(data) {$/
+lastName_i	client_admin.html	/^city<\/label>$/
+lastName_u	client_admin.html	/^city<\/label>$/
+login	clientLoging.php	/^function login($query) {$/
+logout	logout.php	/^function logout(){$/
+microtaskDebounce	js/bootstrap.bundle.js	/^  function microtaskDebounce(fn) {$/
+moveMoney	withinTransfer.php	/^function moveMoney($from, $to, $amount){$/
+not	css/bootstrap.css	/^a:not([href]):not([tabindex]) {$/
+not	css/bootstrap.css	/^a:not([href]):not([tabindex]):hover, a:not([href])/
+not	css/bootstrap.css	/^a:not([href]):not([tabindex]):focus {$/
+not	css/bootstrap.css	/^.list-inline-item:not(:last-child) {$/
+not	css/bootstrap.css	/^.btn:not(:disabled):not(.disabled) {$/
+not	css/bootstrap.css	/^.btn-primary:not(:disabled):not(.disabled):active,/
+not	css/bootstrap.css	/^.btn-primary:not(:disabled):not(.disabled):active:/
+not	css/bootstrap.css	/^.btn-secondary:not(:disabled):not(.disabled):activ/
+not	css/bootstrap.css	/^.btn-secondary:not(:disabled):not(.disabled):activ/
+not	css/bootstrap.css	/^.btn-success:not(:disabled):not(.disabled):active,/
+not	css/bootstrap.css	/^.btn-success:not(:disabled):not(.disabled):active:/
+not	css/bootstrap.css	/^.btn-info:not(:disabled):not(.disabled):active, .b/
+not	css/bootstrap.css	/^.btn-info:not(:disabled):not(.disabled):active:foc/
+not	css/bootstrap.css	/^.btn-warning:not(:disabled):not(.disabled):active,/
+not	css/bootstrap.css	/^.btn-warning:not(:disabled):not(.disabled):active:/
+not	css/bootstrap.css	/^.btn-danger:not(:disabled):not(.disabled):active, /
+not	css/bootstrap.css	/^.btn-danger:not(:disabled):not(.disabled):active:f/
+not	css/bootstrap.css	/^.btn-light:not(:disabled):not(.disabled):active, ./
+not	css/bootstrap.css	/^.btn-light:not(:disabled):not(.disabled):active:fo/
+not	css/bootstrap.css	/^.btn-dark:not(:disabled):not(.disabled):active, .b/
+not	css/bootstrap.css	/^.btn-dark:not(:disabled):not(.disabled):active:foc/
+not	css/bootstrap.css	/^.btn-outline-primary:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-primary:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-secondary:not(:disabled):not(.disable/
+not	css/bootstrap.css	/^.btn-outline-secondary:not(:disabled):not(.disable/
+not	css/bootstrap.css	/^.btn-outline-success:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-success:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-info:not(:disabled):not(.disabled):ac/
+not	css/bootstrap.css	/^.btn-outline-info:not(:disabled):not(.disabled):ac/
+not	css/bootstrap.css	/^.btn-outline-warning:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-warning:not(:disabled):not(.disabled)/
+not	css/bootstrap.css	/^.btn-outline-danger:not(:disabled):not(.disabled):/
+not	css/bootstrap.css	/^.btn-outline-danger:not(:disabled):not(.disabled):/
+not	css/bootstrap.css	/^.btn-outline-light:not(:disabled):not(.disabled):a/
+not	css/bootstrap.css	/^.btn-outline-light:not(:disabled):not(.disabled):a/
+not	css/bootstrap.css	/^.btn-outline-dark:not(:disabled):not(.disabled):ac/
+not	css/bootstrap.css	/^.btn-outline-dark:not(:disabled):not(.disabled):ac/
+not	css/bootstrap.css	/^.btn-group > .btn:not(:last-child):not(.dropdown-t/
+not	css/bootstrap.css	/^.btn-group-vertical > .btn:not(:last-child):not(.d/
+not	css/bootstrap.css	/^.input-group > .custom-select:not(:last-child) {$/
+not	css/bootstrap.css	/^.input-group > .custom-select:not(:first-child) {$/
+not	css/bootstrap.css	/^.input-group > .input-group-append:last-child > .b/
+not	css/bootstrap.css	/^.input-group > .input-group-prepend:first-child > /
+not	css/bootstrap.css	/^.custom-select[multiple], .custom-select[size]:not/
+not	css/bootstrap.css	/^.navbar-toggler:not(:disabled):not(.disabled) {$/
+not	css/bootstrap.css	/^.accordion .card:not(:first-of-type):not(:last-of-/
+not	css/bootstrap.css	/^.page-link:not(:disabled):not(.disabled) {$/
+not	css/bootstrap.css	/^.close:not(:disabled):not(.disabled) {$/
+not	css/bootstrap.css	/^.close:not(:disabled):not(.disabled):hover, .close/
+not	css/bootstrap.css	/^.modal-footer > :not(:first-child) {$/
+not	css/bootstrap.css	/^.modal-footer > :not(:last-child) {$/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+not	css/bootstrap-reboot.css	/^a:not([href]):not([tabindex]) {$/
+not	css/bootstrap-reboot.css	/^a:not([href]):not([tabindex]):hover, a:not([href])/
+not	css/bootstrap-reboot.css	/^a:not([href]):not([tabindex]):focus {$/
+not	css/bootstrap-reboot.min.css	/^ *\/*,::after,::before{box-sizing:border-box}html{f/
+not	css/bootstrap-reboot.min.css	/^ *\/*,::after,::before{box-sizing:border-box}html{f/
+not	css/bootstrap-reboot.min.css	/^ *\/*,::after,::before{box-sizing:border-box}html{f/
+nr	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+offset	js/bootstrap.bundle.js	/^  function offset(data, _ref) {$/
+on	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+or	css/bootstrap.css	/^@supports ((-webkit-transform-style: preserve-3d) /
+or	css/bootstrap.css	/^@supports ((-webkit-transform-style: preserve-3d) /
+or	css/bootstrap.css	/^@supports ((-webkit-transform-style: preserve-3d) /
+or	css/bootstrap.css	/^@supports ((-webkit-transform-style: preserve-3d) /
+or	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+or	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+or	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+or	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+or	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+parseOffset	js/bootstrap.bundle.js	/^  function parseOffset(offset, popperOffsets, refe/
+phone_i	client_admin.html	/^category<\/label>$/
+phone_u	client_admin.html	/^category<\/label>$/
+possibleTransaction	withinTransfer.php	/^function possibleTransaction($from, $amount){$/
+preventOverflow	js/bootstrap.bundle.js	/^  function preventOverflow(data, options) {$/
+province_i	client_admin.html	/^dob<\/label>$/
+province_u	client_admin.html	/^dob<\/label>$/
+pt	js/jquery.js	/^return(!i||i!==r&&!b.contains(r,i))&&(e.type=o.ori/
+removeEventListeners	js/bootstrap.bundle.js	/^  function removeEventListeners(reference, state) /
+runModifiers	js/bootstrap.bundle.js	/^  function runModifiers(modifiers, data, ends) {$/
+searchUser	permissionCheck.php	/^function searchUser($uname, $type){$/
+setAccountSearch	AdminSearch/AdminSearchHelper.php	/^function setAccountSearch()$/
+setAttributes	js/bootstrap.bundle.js	/^  function setAttributes(element, attributes) {$/
+setBillSearch	AdminSearch/AdminSearchHelper.php	/^function setBillSearch()$/
+setBranchSearch	AdminSearch/AdminSearchHelper.php	/^function setBranchSearch()$/
+setChargePlanSearch	AdminSearch/AdminSearchHelper.php	/^function setChargePlanSearch()$/
+setClientSearch	AdminSearch/AdminSearchHelper.php	/^function setClientSearch()$/
+setEmployeeSearch	AdminSearch/AdminSearchHelper.php	/^function setEmployeeSearch()$/
+setScheduleSearch	AdminSearch/AdminSearchHelper.php	/^function setScheduleSearch()$/
+setServiceSearch	AdminSearch/AdminSearchHelper.php	/^function setServiceSearch()$/
+setStyles	js/bootstrap.bundle.js	/^  function setStyles(element, styles) {$/
+setTransactionSearch	AdminSearch/AdminSearchHelper.php	/^function setTransactionSearch()$/
+setTransitionEndSupport	js/bootstrap.bundle.js	/^    function setTransitionEndSupport() {$/
+setTransitionEndSupport	js/bootstrap.js	/^    function setTransitionEndSupport() {$/
+setupEventListeners	js/bootstrap.bundle.js	/^  function setupEventListeners(reference, options,/
+shift	js/bootstrap.bundle.js	/^  function shift(data) {$/
+standing_i	client_admin.html	/^email<\/label>$/
+standing_u	client_admin.html	/^email<\/label>$/
+taskDebounce	js/bootstrap.bundle.js	/^  function taskDebounce(fn) {$/
+tn	js/jquery.js	/^}b.merge(d,s.childNodes),s.textContent="";while(s./
+toType	js/bootstrap.bundle.js	/^    function toType(obj) {$/
+toType	js/bootstrap.js	/^    function toType(obj) {$/
+toValue	js/bootstrap.bundle.js	/^  function toValue(str, measurement, popperOffsets/
+transferAccountUpdate	part2/Domain_Logic.php	/^function transferAccountUpdate($conn, \\BankingApp\\/
+transferTo	part2/Domain_Logic.php	/^function transferTo($account1ID, $account2ID, $amo/
+transitionEndEmulator	js/bootstrap.bundle.js	/^    function transitionEndEmulator(duration) {$/
+transitionEndEmulator	js/bootstrap.js	/^    function transitionEndEmulator(duration) {$/
+type	css/bootstrap.css	/^.table-striped tbody tr:nth-of-type(odd) {$/
+type	css/bootstrap.css	/^.table-dark.table-striped tbody tr:nth-of-type(odd/
+type	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+type	css/bootstrap.min.css	/^ *\/:root{--blue:#007bff;--indigo:#6610f2;--purple:/
+update	AdminSearch/DataGateway.php	/^function update()$/
+update	js/bootstrap.bundle.js	/^  function update() {$/
+verifySession	permissionCheck.php	/^function verifySession($desired_type){$/
