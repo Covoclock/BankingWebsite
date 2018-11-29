@@ -46,35 +46,35 @@ VALUES('Quebec', 'Montreal', 'Cote Des Neiges', '514-555-1515', '514-555-5151', 
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'John',  'Smith', '219 Rue Berlioz', '2001-02-22', 56188.12, 'awoeif@gmail.com', '514-345-3349', 1);
+VALUES( 'John',  'Smith', '219 Rue Berlioz', '2001-02-22', 20.12, 'awoeif@gmail.com', '514-345-3349', 1);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Michelle',  'Green', '233 Rue Gika', '2001-02-23', 58188.12, 'regtyj@gmail.com', '514-455-8988', 1);
+VALUES( 'Michelle',  'Green', '233 Rue Gika', '2001-02-23', 30.12, 'regtyj@gmail.com', '514-455-8988', 1);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Jim',  'Jones', '111 Rue Rigo', '2003-05-20', 65444.11, 'tyjdrheg@gmail.com', '514-455-6576', 2);
+VALUES( 'Jim',  'Jones', '111 Rue Rigo', '2003-05-20', 25.11, 'tyjdrheg@gmail.com', '514-455-6576', 2);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Kim',  'Howard', '453 Rue Tika', '2003-05-21', 76666.21, 'jyrthe@gmail.com', '514-455-3333', 2);
+VALUES( 'Kim',  'Howard', '453 Rue Tika', '2003-05-21', 35.21, 'jyrthe@gmail.com', '514-455-3333', 2);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Ann',  'Roger', '219  Trudeau', '2004-08-21', 59321.34, 'jythrt@gmail.com', '450-345-3349', 3);
+VALUES( 'Ann',  'Roger', '219  Trudeau', '2004-08-21', 14.34, 'jythrt@gmail.com', '450-345-3349', 3);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Tim',  'King', '233  Tilan', '2004-08-22', 61222.11, 'iuwsd@gmail.com', '450-455-8988', 3);
+VALUES( 'Tim',  'King', '233  Tilan', '2004-08-22', 37.11, 'iuwsd@gmail.com', '450-455-8988', 3);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Jack',  'Atheia', '111  frank', '2005-11-29', 63324.61, 'mnbv@gmail.com', '450-455-6576', 4);
+VALUES( 'Jack',  'Atheia', '111  frank', '2005-11-29', 90.61, 'mnbv@gmail.com', '450-455-6576', 4);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Kim',  'Stefen', '453  Demo', '2005-11-30', 63333.22, 'zxcvds@gmail.com', '450-455-3333', 4);
+VALUES( 'Kim',  'Stefen', '453  Demo', '2005-11-30', 23.22, 'zxcvds@gmail.com', '450-455-3333', 4);
 
 
 
@@ -82,11 +82,11 @@ VALUES( 'Kim',  'Stefen', '453  Demo', '2005-11-30', 63333.22, 'zxcvds@gmail.com
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Kilian',  'karl', '453  Demo', '2003-11-29', 63333.22, 'zsadas@gmail.com', '450-555-5533', 5);
+VALUES( 'Kilian',  'karl', '453  Demo', '2003-11-29', 47.22, 'zsadas@gmail.com', '450-555-5533', 5);
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
-VALUES( 'Karlito',  'kilimanjaro', '453  Demo', '2003-11-29', 63333.22, 'as3ds@gmail.com', '450-555-3355', 5);
+VALUES( 'Karlito',  'kilimanjaro', '453  Demo', '2003-11-29', 15.22, 'as3ds@gmail.com', '450-555-3355', 5);
 
 
 /* Set managers and president */
@@ -114,19 +114,19 @@ UPDATE Branch SET manager_id = 9 WHERE branch_id = 5;
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('Ricky', 'Martin', 'Montreal','Quebec', '1980-02-22', '2003-1-12',0, 'bnos@gmail.com', '514-222-3456', 'regular',2);
+VALUES('Ricky', 'Martin', 'Montreal','Quebec', '1980-02-22', '2003-1-12',0, 'bno@gmail.com', '514-222-3456', 'regular',2);
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('Roberto', 'Yuan', 'Toronto', 'Ontario', '1990-03-11', '2003-12-24', '0', 'trdhge@gmail.com', '514-222-6544', 'student', 2);
+VALUES('Roberto', 'Yuan', 'Toronto', 'Ontario', '1990-03-11', '2003-12-24', '0', 'trdhasge@gmail.com', '514-222-6544', 'student', 2);
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('Tina', 'Ita', 'Montreal', 'Quebec', '1983-02-22', '2004-12-26', '1','bnos@gmail.com', '450-222-9877', 'senior', 3);
+VALUES('Tina', 'Ita', 'Montreal', 'Quebec', '1983-02-22', '2004-12-26', '1','bnosas@gmail.com', '450-222-9877', 'senior', 3);
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('Bob', 'Bush', 'Toronto', 'Ontario', '1995-03-11', '2005-12-28', '1','trdhge@gmail.com', '450-222-5675', 'regular',4);
+VALUES('Bob', 'Bush', 'Toronto', 'Ontario', '1995-03-11', '2005-12-28', '1','trasdhge@gmail.com', '450-222-5995', 'regular',4);
 
 
 
@@ -134,11 +134,40 @@ VALUES('Bob', 'Bush', 'Toronto', 'Ontario', '1995-03-11', '2005-12-28', '1','trd
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('Tina', 'Turner', 'Montreal', 'Quebec', '1983-02-22', '2003-10-16', '1','bgsdos@gmail.com', '450-222-9877', 'student', 5);
+VALUES('Tina', 'Turner', 'Montreal', 'Quebec', '1983-02-22', '2003-10-16', '1','bgsdosman@gmail.com', '450-222-9337', 'student', 5);
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
 
-VALUES('billy', 'Bush', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '0', 'asdae@gmail.com', '450-222-5675', 'regular',5);
+VALUES('billy', 'Bush', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '0', 'asaaadae@gmail.com', '450-222-5675', 'regular',5);
+
+
+/*BRANCH clients */
+
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('1', 'Branch', 'Montreal', 'Quebec', '1983-02-22', '2003-10-16', '1','none', '450-222-9337', 'Branch', 1);
+
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('2', 'Branch', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '0', 'none', '450-222-5675', 'Branch',2);
+
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('3', 'Branch', 'Toronto', 'Ontario', '1983-02-22', '2003-10-16', '1','none', '450-222-9337', 'Branch', 3);
+
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('4', 'Branch', 'Toronto', 'Ontario', '1995-03-11', '2003-12-22', '0', 'none', '450-222-5675', 'Branch',4);
+
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('5', 'Branch', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '0', 'none', '450-222-5675', 'Branch',5);
+
+/*Branch 1 client */
+INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
+
+VALUES('Serj', 'Tankian', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '1', 'asaaadae@gmail.com', '450-222-5675', 'regular', 1);
+
 
 
 -- ------------------------
@@ -202,6 +231,32 @@ VALUES(5, 'saving', 4, 435440.11,  50000.00, 0.08, 'personal', 4);
 INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
 VALUES(6, 'chequing', 3, 7655.23,  40000.00, 0.05, 'business', 5);
 
+/*Branch account to receive collected fees */
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(7, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(8, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(9, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(10, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(11, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(12, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
+
+/* */
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(13, 'saving', 4, 435440.11,  50000.00, 0.08, 'personal', 4);
+
+INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
+VALUES(13, 'credit', 3, 7655.23,  40000.00, 5.00, 'personal', 5);
 
 
 -- ------------------------
