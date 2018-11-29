@@ -4,7 +4,7 @@
  *
  * Distributed under terms of the MIT license.
  */
-
+SET FOREIGN_KEY_CHECKS=0;
 /* INSERTIONS */
 
 -- ------------------------
@@ -12,6 +12,7 @@
 -- Populate Branch table
 
 -- ------------------------
+TRUNCATE TABLE Branch;
 
 INSERT INTO Branch(province, city, street, phone, fax, opening_date, isHeadOffice)
 
@@ -43,6 +44,7 @@ VALUES('Quebec', 'Montreal', 'Cote Des Neiges', '514-555-1515', '514-555-5151', 
 -- Populate Employee table
 
 -- ------------------------
+TRUNCATE TABLE Employee;
 
 INSERT INTO Employee(firstName, lastName, addr, start_date, wage, email, phone, branch_id)
 
@@ -110,6 +112,7 @@ UPDATE Branch SET manager_id = 9 WHERE branch_id = 5;
 -- Populate Client table
 
 -- ------------------------
+TRUNCATE TABLE Client;
 
 
 INSERT INTO Client(firstName, lastName, city, province, dob, join_date, standing, email, phone, category, branch_id)
@@ -175,6 +178,7 @@ VALUES('Serj', 'Tankian', 'Montreal', 'Quebec', '1995-03-11', '2003-12-22', '1',
 -- Populate ChargePlan Table
 
 -- ------------------------
+TRUNCATE TABLE ChargePlan;
 
 INSERT INTO ChargePlan(chargePlan_id, option_name, draw_limit, charge_value)
 VALUE (0, 'PERFORMANCE', 20, 10);
@@ -193,6 +197,7 @@ VALUE (4, 'PRACTICAL', 5, 0);
 -- Populate Account table
 
 -- ------------------------
+TRUNCATE TABLE Account;
 
 INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
 
@@ -248,8 +253,6 @@ VALUES(10, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
 INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
 VALUES(11, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
 
-INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
-VALUES(12, 'Branch', 4, 0, 0, 0, 'Branch', 100000);
 
 /* */
 INSERT INTO Account(client_id, account_type, chargePlan_id, balance, credit_limit, interest_rate, lvl, transactionLeft)
@@ -265,7 +268,7 @@ VALUES(13, 'credit', 3, 7655.23,  40000.00, 5.00, 'personal', 5);
 
 -- ------------------------
 
-DELETE FROM Services;
+TRUNCATE TABLE Services;
 
 ALTER TABLE Services AUTO_INCREMENT = 1;
 
@@ -289,10 +292,9 @@ VALUES('loan', 8);
 
 
 -- ------------------------
-
 -- Populate Transactions table
-
 -- ------------------------
+TRUNCATE TABLE Transactions;
 
 
 INSERT INTO Transactions(account1_id, account2_id, amount, dt)
@@ -312,11 +314,9 @@ VALUE(4,2,700.00,now());
 
 
 -- ------------------------
-
 -- Populate Bills table
-
 -- ------------------------
-
+TRUNCATE TABLE Bills; 
 
 INSERT INTO Bills(amount, account1_id, account2_id, recurring)
 VALUE (300.00, 3,4,0);
@@ -334,10 +334,9 @@ VALUE (67.00, 2,8,1);
 
 
 -- ------------------------
-
 -- Populate EmployeeLogin table
-
 -- ------------------------
+TRUNCATE TABLE EmployeeLogin;
 
 INSERT INTO EmployeeLogin(employee_id, psw)
 VALUE (1,'bank');
@@ -367,20 +366,14 @@ VALUE (10,'bank');
 -- Populate ClientLogin table
 
 -- ------------------------
+TRUNCATE TABLE ClientLogin;
 
-
-INSERT INTO ClientLogin(client_id)
-VALUE (1);
-INSERT INTO ClientLogin(client_id)
-VALUE (2);
-INSERT INTO ClientLogin(client_id)
-VALUE (3);
-INSERT INTO ClientLogin(client_id)
-VALUE (4);
-INSERT INTO ClientLogin(client_id)
-VALUE (5);
-INSERT INTO ClientLogin(client_id)
-VALUE (6);
+INSERT INTO ClientLogin(client_id, psw) VALUE (1, "p1");
+INSERT INTO ClientLogin(client_id, psw) VALUE (2, "p2");
+INSERT INTO ClientLogin(client_id, psw) VALUE (3, "p3");
+INSERT INTO ClientLogin(client_id, psw) VALUE (4, "p4");
+INSERT INTO ClientLogin(client_id, psw) VALUE (5, "p5");
+INSERT INTO ClientLogin(client_id, psw) VALUE (6, "p6");
 
 
 -- ------------------------
@@ -388,9 +381,7 @@ VALUE (6);
 -- Populate Schedule table
 
 -- ------------------------
-select * from Schedule;
-truncate table Schedule;
-
+TRUNCATE TABLE Schedule;
 
 INSERT INTO Schedule(employee_id, work_date, hour_begin, hour_end, isHoliday)
 VALUE (1,'2018-06-21', 9, 17, 1);
@@ -404,3 +395,7 @@ INSERT INTO Schedule(employee_id, work_date, hour_begin, hour_end, isHoliday)
 VALUE (5,'2018-04-21', 9, 17, 1);
 INSERT INTO Schedule(employee_id, work_date, hour_begin, hour_end, isHoliday)
 VALUE (6,'2018-05-30', 9, 17, 1);
+
+
+
+SET FOREIGN_KEY_CHECKS=1;
